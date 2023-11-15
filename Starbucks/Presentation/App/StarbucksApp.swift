@@ -2,16 +2,16 @@
 //  StarbucksApp.swift
 //  Starbucks
 //
-//  Created by DEV IOS on 2023/11/15.
+//  Created by mino on 2023/10/18.
 //
 
 import SwiftUI
 
 @main
-struct StarbucksApp: App {
+struct StickyHeaderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView()
         }
     }
 }

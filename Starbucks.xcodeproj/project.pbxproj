@@ -8,17 +8,79 @@
 
 /* Begin PBXBuildFile section */
 		1749EA022B04997900CACC01 /* StarbucksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA012B04997900CACC01 /* StarbucksApp.swift */; };
-		1749EA042B04997900CACC01 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA032B04997900CACC01 /* ContentView.swift */; };
 		1749EA062B04997B00CACC01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1749EA052B04997B00CACC01 /* Assets.xcassets */; };
 		1749EA092B04997B00CACC01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1749EA082B04997B00CACC01 /* Preview Assets.xcassets */; };
+		1749EA192B049C9900CACC01 /* StartingPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA182B049C9900CACC01 /* StartingPopupView.swift */; };
+		1749EA1B2B049CC500CACC01 /* BackbuttonOnlyIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA1A2B049CC500CACC01 /* BackbuttonOnlyIcon.swift */; };
+		1749EA1D2B049CDB00CACC01 /* MenuListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA1C2B049CDB00CACC01 /* MenuListCard.swift */; };
+		1749EA212B049D5D00CACC01 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA202B049D5D00CACC01 /* View+.swift */; };
+		1749EA232B049D8C00CACC01 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA222B049D8C00CACC01 /* Home.swift */; };
+		1749EA252B049D9300CACC01 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA242B049D9300CACC01 /* HomeViewModel.swift */; };
+		1749EA272B049D9B00CACC01 /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA262B049D9B00CACC01 /* HomeHeader.swift */; };
+		1749EA292B049DA200CACC01 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA282B049DA200CACC01 /* Playground.swift */; };
+		1749EA2E2B049DFC00CACC01 /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA2D2B049DFC00CACC01 /* NoticeModel.swift */; };
+		1749EA302B049E0500CACC01 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA2F2B049E0500CACC01 /* NoticeView.swift */; };
+		1749EA322B049E0F00CACC01 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA312B049E0F00CACC01 /* NoticeViewModel.swift */; };
+		1749EA342B049E1A00CACC01 /* ReviewWritePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA332B049E1A00CACC01 /* ReviewWritePopupView.swift */; };
+		1749EA362B049E2400CACC01 /* NoticePopupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA352B049E2400CACC01 /* NoticePopupStyle.swift */; };
+		1749EA3A2B049E6B00CACC01 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA392B049E6B00CACC01 /* ScannerVC.swift */; };
+		1749EA3C2B049E7500CACC01 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA3B2B049E7500CACC01 /* ScannerView.swift */; };
+		1749EA3E2B049E7A00CACC01 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA3D2B049E7A00CACC01 /* Alert.swift */; };
+		1749EA402B049E8700CACC01 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA3F2B049E8700CACC01 /* ScannerViewModel.swift */; };
+		1749EA422B049E9400CACC01 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA412B049E9400CACC01 /* BarcodeScannerView.swift */; };
+		1749EA442B049E9E00CACC01 /* AddCouponModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA432B049E9E00CACC01 /* AddCouponModel.swift */; };
+		1749EA462B049EE400CACC01 /* AddCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA452B049EE400CACC01 /* AddCouponView.swift */; };
+		1749EA482B049EED00CACC01 /* RadioButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA472B049EED00CACC01 /* RadioButtonType.swift */; };
+		1749EA4A2B049EFB00CACC01 /* AddCouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA492B049EFB00CACC01 /* AddCouponViewModel.swift */; };
+		1749EA4C2B049F1D00CACC01 /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA4B2B049F1D00CACC01 /* CouponView.swift */; };
+		1749EA4E2B049F2400CACC01 /* CouponCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA4D2B049F2400CACC01 /* CouponCase.swift */; };
+		1749EA502B049F5100CACC01 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA4F2B049F5100CACC01 /* WhatsNewView.swift */; };
+		1749EA522B049F5900CACC01 /* WhatsNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA512B049F5900CACC01 /* WhatsNewCell.swift */; };
+		1749EA542B049F6100CACC01 /* WhatsNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA532B049F6100CACC01 /* WhatsNewViewModel.swift */; };
+		1749EA562B049F6700CACC01 /* WhatsNewCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA552B049F6700CACC01 /* WhatsNewCase.swift */; };
+		1749EA582B049F9A00CACC01 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA572B049F9A00CACC01 /* TabBarView.swift */; };
+		1749EA5A2B049FB700CACC01 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA592B049FB700CACC01 /* MultiSection.swift */; };
+		1749EA5C2B049FC400CACC01 /* QuickMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA5B2B049FC400CACC01 /* QuickMenu.swift */; };
+		1749EA5E2B049FCC00CACC01 /* OtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA5D2B049FCC00CACC01 /* OtherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1749E9FE2B04997900CACC01 /* Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1749EA012B04997900CACC01 /* StarbucksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksApp.swift; sourceTree = "<group>"; };
-		1749EA032B04997900CACC01 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1749EA052B04997B00CACC01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1749EA082B04997B00CACC01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1749EA182B049C9900CACC01 /* StartingPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingPopupView.swift; sourceTree = "<group>"; };
+		1749EA1A2B049CC500CACC01 /* BackbuttonOnlyIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackbuttonOnlyIcon.swift; sourceTree = "<group>"; };
+		1749EA1C2B049CDB00CACC01 /* MenuListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListCard.swift; sourceTree = "<group>"; };
+		1749EA202B049D5D00CACC01 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		1749EA222B049D8C00CACC01 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		1749EA242B049D9300CACC01 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		1749EA262B049D9B00CACC01 /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
+		1749EA282B049DA200CACC01 /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		1749EA2D2B049DFC00CACC01 /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		1749EA2F2B049E0500CACC01 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		1749EA312B049E0F00CACC01 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
+		1749EA332B049E1A00CACC01 /* ReviewWritePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWritePopupView.swift; sourceTree = "<group>"; };
+		1749EA352B049E2400CACC01 /* NoticePopupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePopupStyle.swift; sourceTree = "<group>"; };
+		1749EA392B049E6B00CACC01 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
+		1749EA3B2B049E7500CACC01 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		1749EA3D2B049E7A00CACC01 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		1749EA3F2B049E8700CACC01 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		1749EA412B049E9400CACC01 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
+		1749EA432B049E9E00CACC01 /* AddCouponModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponModel.swift; sourceTree = "<group>"; };
+		1749EA452B049EE400CACC01 /* AddCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponView.swift; sourceTree = "<group>"; };
+		1749EA472B049EED00CACC01 /* RadioButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonType.swift; sourceTree = "<group>"; };
+		1749EA492B049EFB00CACC01 /* AddCouponViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponViewModel.swift; sourceTree = "<group>"; };
+		1749EA4B2B049F1D00CACC01 /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
+		1749EA4D2B049F2400CACC01 /* CouponCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCase.swift; sourceTree = "<group>"; };
+		1749EA4F2B049F5100CACC01 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
+		1749EA512B049F5900CACC01 /* WhatsNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewCell.swift; sourceTree = "<group>"; };
+		1749EA532B049F6100CACC01 /* WhatsNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewModel.swift; sourceTree = "<group>"; };
+		1749EA552B049F6700CACC01 /* WhatsNewCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewCase.swift; sourceTree = "<group>"; };
+		1749EA572B049F9A00CACC01 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		1749EA592B049FB700CACC01 /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
+		1749EA5B2B049FC400CACC01 /* QuickMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMenu.swift; sourceTree = "<group>"; };
+		1749EA5D2B049FCC00CACC01 /* OtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +113,9 @@
 		1749EA002B04997900CACC01 /* Starbucks */ = {
 			isa = PBXGroup;
 			children = (
-				1749EA012B04997900CACC01 /* StarbucksApp.swift */,
-				1749EA032B04997900CACC01 /* ContentView.swift */,
-				1749EA052B04997B00CACC01 /* Assets.xcassets */,
-				1749EA072B04997B00CACC01 /* Preview Content */,
+				1749EA0F2B049B2A00CACC01 /* Common */,
+				1749EA102B049B3D00CACC01 /* Resource */,
+				1749EA112B049B7800CACC01 /* Presentation */,
 			);
 			path = Starbucks;
 			sourceTree = "<group>";
@@ -65,6 +126,166 @@
 				1749EA082B04997B00CACC01 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1749EA0F2B049B2A00CACC01 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA1F2B049D5300CACC01 /* Extension */,
+				1749EA1E2B049D4300CACC01 /* Components */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1749EA102B049B3D00CACC01 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA052B04997B00CACC01 /* Assets.xcassets */,
+				1749EA072B04997B00CACC01 /* Preview Content */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		1749EA112B049B7800CACC01 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA122B049C3A00CACC01 /* App */,
+				1749EA132B049C4200CACC01 /* Home */,
+				1749EA142B049C4900CACC01 /* Pay */,
+				1749EA152B049C4F00CACC01 /* Order */,
+				1749EA162B049C5400CACC01 /* Shop */,
+				1749EA172B049C5900CACC01 /* Other */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1749EA122B049C3A00CACC01 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA012B04997900CACC01 /* StarbucksApp.swift */,
+				1749EA572B049F9A00CACC01 /* TabBarView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1749EA132B049C4200CACC01 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA2C2B049DDC00CACC01 /* WhatsNew */,
+				1749EA2B2B049DD700CACC01 /* Coupon */,
+				1749EA2A2B049DD200CACC01 /* Notice */,
+				1749EA222B049D8C00CACC01 /* Home.swift */,
+				1749EA242B049D9300CACC01 /* HomeViewModel.swift */,
+				1749EA262B049D9B00CACC01 /* HomeHeader.swift */,
+				1749EA282B049DA200CACC01 /* Playground.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1749EA142B049C4900CACC01 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		1749EA152B049C4F00CACC01 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		1749EA162B049C5400CACC01 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		1749EA172B049C5900CACC01 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA592B049FB700CACC01 /* MultiSection.swift */,
+				1749EA5B2B049FC400CACC01 /* QuickMenu.swift */,
+				1749EA5D2B049FCC00CACC01 /* OtherView.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		1749EA1E2B049D4300CACC01 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA182B049C9900CACC01 /* StartingPopupView.swift */,
+				1749EA1A2B049CC500CACC01 /* BackbuttonOnlyIcon.swift */,
+				1749EA1C2B049CDB00CACC01 /* MenuListCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1749EA1F2B049D5300CACC01 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA202B049D5D00CACC01 /* View+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1749EA2A2B049DD200CACC01 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA2D2B049DFC00CACC01 /* NoticeModel.swift */,
+				1749EA2F2B049E0500CACC01 /* NoticeView.swift */,
+				1749EA312B049E0F00CACC01 /* NoticeViewModel.swift */,
+				1749EA332B049E1A00CACC01 /* ReviewWritePopupView.swift */,
+				1749EA352B049E2400CACC01 /* NoticePopupStyle.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		1749EA2B2B049DD700CACC01 /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA372B049E5400CACC01 /* AddCoupon */,
+				1749EA4B2B049F1D00CACC01 /* CouponView.swift */,
+				1749EA4D2B049F2400CACC01 /* CouponCase.swift */,
+			);
+			path = Coupon;
+			sourceTree = "<group>";
+		};
+		1749EA2C2B049DDC00CACC01 /* WhatsNew */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA4F2B049F5100CACC01 /* WhatsNewView.swift */,
+				1749EA512B049F5900CACC01 /* WhatsNewCell.swift */,
+				1749EA532B049F6100CACC01 /* WhatsNewViewModel.swift */,
+				1749EA552B049F6700CACC01 /* WhatsNewCase.swift */,
+			);
+			path = WhatsNew;
+			sourceTree = "<group>";
+		};
+		1749EA372B049E5400CACC01 /* AddCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA382B049E5C00CACC01 /* BarcodeScanner */,
+				1749EA452B049EE400CACC01 /* AddCouponView.swift */,
+				1749EA472B049EED00CACC01 /* RadioButtonType.swift */,
+				1749EA492B049EFB00CACC01 /* AddCouponViewModel.swift */,
+			);
+			path = AddCoupon;
+			sourceTree = "<group>";
+		};
+		1749EA382B049E5C00CACC01 /* BarcodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA392B049E6B00CACC01 /* ScannerVC.swift */,
+				1749EA3B2B049E7500CACC01 /* ScannerView.swift */,
+				1749EA3D2B049E7A00CACC01 /* Alert.swift */,
+				1749EA3F2B049E8700CACC01 /* ScannerViewModel.swift */,
+				1749EA412B049E9400CACC01 /* BarcodeScannerView.swift */,
+				1749EA432B049E9E00CACC01 /* AddCouponModel.swift */,
+			);
+			path = BarcodeScanner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +358,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1749EA042B04997900CACC01 /* ContentView.swift in Sources */,
+				1749EA422B049E9400CACC01 /* BarcodeScannerView.swift in Sources */,
+				1749EA3E2B049E7A00CACC01 /* Alert.swift in Sources */,
+				1749EA402B049E8700CACC01 /* ScannerViewModel.swift in Sources */,
+				1749EA362B049E2400CACC01 /* NoticePopupStyle.swift in Sources */,
+				1749EA482B049EED00CACC01 /* RadioButtonType.swift in Sources */,
+				1749EA542B049F6100CACC01 /* WhatsNewViewModel.swift in Sources */,
+				1749EA302B049E0500CACC01 /* NoticeView.swift in Sources */,
+				1749EA192B049C9900CACC01 /* StartingPopupView.swift in Sources */,
+				1749EA3C2B049E7500CACC01 /* ScannerView.swift in Sources */,
+				1749EA582B049F9A00CACC01 /* TabBarView.swift in Sources */,
+				1749EA5C2B049FC400CACC01 /* QuickMenu.swift in Sources */,
+				1749EA462B049EE400CACC01 /* AddCouponView.swift in Sources */,
+				1749EA522B049F5900CACC01 /* WhatsNewCell.swift in Sources */,
+				1749EA5A2B049FB700CACC01 /* MultiSection.swift in Sources */,
+				1749EA1D2B049CDB00CACC01 /* MenuListCard.swift in Sources */,
+				1749EA322B049E0F00CACC01 /* NoticeViewModel.swift in Sources */,
+				1749EA4A2B049EFB00CACC01 /* AddCouponViewModel.swift in Sources */,
+				1749EA4E2B049F2400CACC01 /* CouponCase.swift in Sources */,
+				1749EA562B049F6700CACC01 /* WhatsNewCase.swift in Sources */,
+				1749EA502B049F5100CACC01 /* WhatsNewView.swift in Sources */,
+				1749EA342B049E1A00CACC01 /* ReviewWritePopupView.swift in Sources */,
+				1749EA252B049D9300CACC01 /* HomeViewModel.swift in Sources */,
 				1749EA022B04997900CACC01 /* StarbucksApp.swift in Sources */,
+				1749EA2E2B049DFC00CACC01 /* NoticeModel.swift in Sources */,
+				1749EA272B049D9B00CACC01 /* HomeHeader.swift in Sources */,
+				1749EA292B049DA200CACC01 /* Playground.swift in Sources */,
+				1749EA212B049D5D00CACC01 /* View+.swift in Sources */,
+				1749EA3A2B049E6B00CACC01 /* ScannerVC.swift in Sources */,
+				1749EA1B2B049CC500CACC01 /* BackbuttonOnlyIcon.swift in Sources */,
+				1749EA4C2B049F1D00CACC01 /* CouponView.swift in Sources */,
+				1749EA5E2B049FCC00CACC01 /* OtherView.swift in Sources */,
+				1749EA442B049E9E00CACC01 /* AddCouponModel.swift in Sources */,
+				1749EA232B049D8C00CACC01 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +518,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Starbucks/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Starbucks/Resource/Preview Content\"";
+				DEVELOPMENT_TEAM = 69AX92X75M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -294,7 +547,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Starbucks/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Starbucks/Resource/Preview Content\"";
+				DEVELOPMENT_TEAM = 69AX92X75M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
