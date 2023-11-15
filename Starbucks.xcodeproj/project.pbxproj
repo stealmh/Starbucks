@@ -47,6 +47,7 @@
 		1749EA652B04A3F500CACC01 /* NoticeCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA642B04A3F500CACC01 /* NoticeCase.swift */; };
 		1749EA672B04A49200CACC01 /* NoticeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA662B04A49200CACC01 /* NoticeDetailModel.swift */; };
 		1749EA692B04A51D00CACC01 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA682B04A51D00CACC01 /* MultiSection.swift */; };
+		1749EA6C2B04A88800CACC01 /* CouponInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA6B2B04A88800CACC01 /* CouponInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		1749EA642B04A3F500CACC01 /* NoticeCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCase.swift; sourceTree = "<group>"; };
 		1749EA662B04A49200CACC01 /* NoticeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailModel.swift; sourceTree = "<group>"; };
 		1749EA682B04A51D00CACC01 /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
+		1749EA6B2B04A88800CACC01 /* CouponInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 		1749EA2B2B049DD700CACC01 /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
+				1749EA6A2B04A87300CACC01 /* Info */,
 				1749EA372B049E5400CACC01 /* AddCoupon */,
 				1749EA4B2B049F1D00CACC01 /* CouponView.swift */,
 				1749EA4D2B049F2400CACC01 /* CouponCase.swift */,
@@ -309,6 +312,14 @@
 				1749EA682B04A51D00CACC01 /* MultiSection.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1749EA6A2B04A87300CACC01 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA6B2B04A88800CACC01 /* CouponInfoView.swift */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +429,7 @@
 				1749EA632B04A3D000CACC01 /* RecommendCoffee.swift in Sources */,
 				1749EA652B04A3F500CACC01 /* NoticeCase.swift in Sources */,
 				1749EA442B049E9E00CACC01 /* AddCouponModel.swift in Sources */,
+				1749EA6C2B04A88800CACC01 /* CouponInfoView.swift in Sources */,
 				1749EA232B049D8C00CACC01 /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

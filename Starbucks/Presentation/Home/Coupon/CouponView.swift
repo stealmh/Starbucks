@@ -80,7 +80,7 @@ fileprivate extension View {
                     }
                     
                     NavigationLink {
-                        
+                        CouponInfoView()
                     } label: {
                         Image(systemName: "info.circle")
                     }
