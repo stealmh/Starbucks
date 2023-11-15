@@ -29,49 +29,43 @@ struct Home: View {
                                 self.homeData.offset = -offset
                             }
                         }
-                        return AnyView(
-                            VStack {
-                                Image("food")
-                                    .resizable()
-                                    .ignoresSafeArea()
+                        return AnyView(Text("").frame(width: 0, height: 0))
+                    }
+                    VStack {
+                        Image("food")
+                            .resizable()
+                            .ignoresSafeArea()
 //                                        .frame(height: 150 + (offset > 0 ? offset : 0))
-                                VStack(alignment: .leading) {
-                                    Text("15 ★ until Gold Level")
-                                        .foregroundColor(.green)
-                                    HStack {
-                                        ProgressView("", value: progressbarPercent, total: 100)
-                                            .padding(.trailing, 5)
-                                            .tint(.green)
-                                            .animation(.easeInOut(duration: 2), value: progressbarPercent)
-                                        Text("10")
-                                            .font(.largeTitle)
-                                            .fontWeight(.semibold)
-                                        Text("/")
-                                            .foregroundColor(.gray)
-                                        Text("25★")
-                                            .font(.title3)
-                                            .foregroundColor(.green)
-                                            .padding(.trailing, 25)
-                                    }
-                                    .onAppear {
-                                        self.progressbarPercent = 60
-                                    }
-                                }
-                                .padding(.leading, 25)
-                                .padding(.top, 10)
+                        VStack(alignment: .leading) {
+                            Text("15 ★ until Gold Level")
+                                .foregroundColor(.green)
+                            HStack {
+                                ProgressView("", value: progressbarPercent, total: 100)
+                                    .padding(.trailing, 5)
+                                    .tint(.green)
+                                    .animation(.easeInOut(duration: 2), value: progressbarPercent)
+                                Text("10")
+                                    .font(.largeTitle)
+                                    .fontWeight(.semibold)
+                                Text("/")
+                                    .foregroundColor(.gray)
+                                Text("25★")
+                                    .font(.title3)
+                                    .foregroundColor(.green)
+                                    .padding(.trailing, 25)
                             }
-//                                .frame(height: 220 + (offset > 0 ? offset : 0))
-//                                .offset(y: (offset > 0 ? -offset : 0))
-//                            .offset(y: (0))
-                            .background(.white)
-                            .animation(.easeIn, value: homeData.offset)
-
-                        )
+                            .onAppear {
+                                self.progressbarPercent = 60
+                            }
+                        }
+                        .padding(.leading, 25)
+                        .padding(.top, 10)
                     }
                     .frame(height: 220 + (checkOffsetValue > 0 ? checkOffsetValue : 0))
                     .background(.white)
                     .opacity(homeData.offset > 150 ? 0 : 1)
                     .animation(.easeOut, value: homeData.offset)
+
                     LazyVStack(alignment: .center, spacing: 0, pinnedViews: [.sectionHeaders], content: {
                             Section(header: HomeHeader()) {
                                 eventCard
