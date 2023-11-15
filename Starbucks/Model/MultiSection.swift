@@ -2,7 +2,7 @@
 //  MultiSection.swift
 //  Starbucks
 //
-//  Created by mino on 2023/10/25.
+//  Created by mino on 2023/11/15.
 //
 
 import Foundation
@@ -12,13 +12,6 @@ struct MultiSection: Identifiable {
     let section: MultiSectionCase
     let detail: [SectionDetail]
 }
-
-struct SectionDetail: Identifiable {
-    let id = UUID()
-    let image: String
-    let contentLabel: String
-}
-
 // MARK: - Case
 extension MultiSection {
     enum MultiSectionCase {
@@ -33,7 +26,6 @@ extension MultiSection {
         }
     }
 }
-
 // MARK: - Mock
 extension MultiSection {
     static let mock: [MultiSection] = [

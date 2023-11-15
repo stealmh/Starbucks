@@ -7,32 +7,6 @@
 
 import SwiftUI
 
-
-struct Notice: Hashable {
-    let id = UUID()
-    let title: String
-    let contents: String
-    let thumbnail: String
-}
-
-extension Notice {
-    static let mock = [Notice(title: "탄소중립포인트제 본인인증 고객대상 인센티브 지급 일정 안내",
-                              contents: "23년 7월부터는 본인인증 완료 고객 대상 인센티브 지급 일정 안내드립니다.",
-                              thumbnail: "food"),
-                       Notice(title: "탄소중립어쩌구저쩌",
-                              contents: "23년 7월부터는 본인인증 완료 고객 대상 인센티브 지급 일정 안내드립니다.",
-                              thumbnail: "pizza"),
-                       Notice(title: "탄소중립어쩌구구",
-                               contents: "23년 7월부터는 본인인증 완료 고객 대상 인센티브 지급 일정 안내드립니다.",
-                               thumbnail: "fries")]
-}
-
-struct RecommendCoffee: Hashable {
-    let id = UUID()
-    let title: String
-    let coffeeImage: String
-}
-
 struct Home: View {
     @StateObject var homeData = HomeViewModel()
     @Environment(\.colorScheme) var scheme
@@ -42,7 +16,7 @@ struct Home: View {
     @State var deleveryButtonToggle: Bool = false
     @State private var recommedCoffee: [RecommendCoffee] = [RecommendCoffee(title: "아이스 아메리카노", coffeeImage: "food"), RecommendCoffee(title: "아이스 뭐라카노", coffeeImage: "food"), RecommendCoffee(title: "아이스 디카페인 카페 아메리카노", coffeeImage: "food")]
     @State private var foodList: [String] = ["choclate", "cookie", "food", "fries", "pizza", "sandwich"]
-    @State private var noticeList: [Notice] = Notice.mock
+    @State private var noticeList: [HomeNotice] = HomeNotice.mock
     var body: some View {
         NavigationStack {
             ZStack {

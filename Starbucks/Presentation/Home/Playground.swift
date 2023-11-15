@@ -17,7 +17,7 @@ struct HomePlaygroundView: View {
     @State var deleveryButtonToggle: Bool = false
     @State private var recommedCoffee: [RecommendCoffee] = [RecommendCoffee(title: "아이스 아메리카노", coffeeImage: "food"), RecommendCoffee(title: "아이스 뭐라카노", coffeeImage: "food"), RecommendCoffee(title: "아이스 디카페인 카페 아메리카노", coffeeImage: "food")]
     @State private var foodList: [String] = ["choclate", "cookie", "food", "fries", "pizza", "sandwich"]
-    @State private var noticeList: [Notice] = Notice.mock
+    @State private var noticeList: [HomeNotice] = HomeNotice.mock
     
     
     @State var isHide = true

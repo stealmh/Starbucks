@@ -39,9 +39,14 @@
 		1749EA542B049F6100CACC01 /* WhatsNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA532B049F6100CACC01 /* WhatsNewViewModel.swift */; };
 		1749EA562B049F6700CACC01 /* WhatsNewCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA552B049F6700CACC01 /* WhatsNewCase.swift */; };
 		1749EA582B049F9A00CACC01 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA572B049F9A00CACC01 /* TabBarView.swift */; };
-		1749EA5A2B049FB700CACC01 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA592B049FB700CACC01 /* MultiSection.swift */; };
+		1749EA5A2B049FB700CACC01 /* SectionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA592B049FB700CACC01 /* SectionDetail.swift */; };
 		1749EA5C2B049FC400CACC01 /* QuickMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA5B2B049FC400CACC01 /* QuickMenu.swift */; };
 		1749EA5E2B049FCC00CACC01 /* OtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA5D2B049FCC00CACC01 /* OtherView.swift */; };
+		1749EA612B04A3B500CACC01 /* HomeNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA602B04A3B500CACC01 /* HomeNotice.swift */; };
+		1749EA632B04A3D000CACC01 /* RecommendCoffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA622B04A3D000CACC01 /* RecommendCoffee.swift */; };
+		1749EA652B04A3F500CACC01 /* NoticeCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA642B04A3F500CACC01 /* NoticeCase.swift */; };
+		1749EA672B04A49200CACC01 /* NoticeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA662B04A49200CACC01 /* NoticeDetailModel.swift */; };
+		1749EA692B04A51D00CACC01 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA682B04A51D00CACC01 /* MultiSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,9 +83,14 @@
 		1749EA532B049F6100CACC01 /* WhatsNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewModel.swift; sourceTree = "<group>"; };
 		1749EA552B049F6700CACC01 /* WhatsNewCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewCase.swift; sourceTree = "<group>"; };
 		1749EA572B049F9A00CACC01 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		1749EA592B049FB700CACC01 /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
+		1749EA592B049FB700CACC01 /* SectionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionDetail.swift; path = ../Presentation/Other/SectionDetail.swift; sourceTree = "<group>"; };
 		1749EA5B2B049FC400CACC01 /* QuickMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMenu.swift; sourceTree = "<group>"; };
 		1749EA5D2B049FCC00CACC01 /* OtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherView.swift; sourceTree = "<group>"; };
+		1749EA602B04A3B500CACC01 /* HomeNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNotice.swift; sourceTree = "<group>"; };
+		1749EA622B04A3D000CACC01 /* RecommendCoffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCoffee.swift; sourceTree = "<group>"; };
+		1749EA642B04A3F500CACC01 /* NoticeCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCase.swift; sourceTree = "<group>"; };
+		1749EA662B04A49200CACC01 /* NoticeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailModel.swift; sourceTree = "<group>"; };
+		1749EA682B04A51D00CACC01 /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 		1749EA002B04997900CACC01 /* Starbucks */ = {
 			isa = PBXGroup;
 			children = (
+				1749EA5F2B04A3A800CACC01 /* Model */,
 				1749EA0F2B049B2A00CACC01 /* Common */,
 				1749EA102B049B3D00CACC01 /* Resource */,
 				1749EA112B049B7800CACC01 /* Presentation */,
@@ -206,8 +217,6 @@
 		1749EA172B049C5900CACC01 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				1749EA592B049FB700CACC01 /* MultiSection.swift */,
-				1749EA5B2B049FC400CACC01 /* QuickMenu.swift */,
 				1749EA5D2B049FCC00CACC01 /* OtherView.swift */,
 			);
 			path = Other;
@@ -234,11 +243,11 @@
 		1749EA2A2B049DD200CACC01 /* Notice */ = {
 			isa = PBXGroup;
 			children = (
-				1749EA2D2B049DFC00CACC01 /* NoticeModel.swift */,
 				1749EA2F2B049E0500CACC01 /* NoticeView.swift */,
 				1749EA312B049E0F00CACC01 /* NoticeViewModel.swift */,
 				1749EA332B049E1A00CACC01 /* ReviewWritePopupView.swift */,
 				1749EA352B049E2400CACC01 /* NoticePopupStyle.swift */,
+				1749EA642B04A3F500CACC01 /* NoticeCase.swift */,
 			);
 			path = Notice;
 			sourceTree = "<group>";
@@ -286,6 +295,20 @@
 				1749EA432B049E9E00CACC01 /* AddCouponModel.swift */,
 			);
 			path = BarcodeScanner;
+			sourceTree = "<group>";
+		};
+		1749EA5F2B04A3A800CACC01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1749EA602B04A3B500CACC01 /* HomeNotice.swift */,
+				1749EA622B04A3D000CACC01 /* RecommendCoffee.swift */,
+				1749EA2D2B049DFC00CACC01 /* NoticeModel.swift */,
+				1749EA662B04A49200CACC01 /* NoticeDetailModel.swift */,
+				1749EA5B2B049FC400CACC01 /* QuickMenu.swift */,
+				1749EA592B049FB700CACC01 /* SectionDetail.swift */,
+				1749EA682B04A51D00CACC01 /* MultiSection.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,14 +388,17 @@
 				1749EA482B049EED00CACC01 /* RadioButtonType.swift in Sources */,
 				1749EA542B049F6100CACC01 /* WhatsNewViewModel.swift in Sources */,
 				1749EA302B049E0500CACC01 /* NoticeView.swift in Sources */,
+				1749EA672B04A49200CACC01 /* NoticeDetailModel.swift in Sources */,
 				1749EA192B049C9900CACC01 /* StartingPopupView.swift in Sources */,
 				1749EA3C2B049E7500CACC01 /* ScannerView.swift in Sources */,
 				1749EA582B049F9A00CACC01 /* TabBarView.swift in Sources */,
+				1749EA692B04A51D00CACC01 /* MultiSection.swift in Sources */,
 				1749EA5C2B049FC400CACC01 /* QuickMenu.swift in Sources */,
 				1749EA462B049EE400CACC01 /* AddCouponView.swift in Sources */,
 				1749EA522B049F5900CACC01 /* WhatsNewCell.swift in Sources */,
-				1749EA5A2B049FB700CACC01 /* MultiSection.swift in Sources */,
+				1749EA5A2B049FB700CACC01 /* SectionDetail.swift in Sources */,
 				1749EA1D2B049CDB00CACC01 /* MenuListCard.swift in Sources */,
+				1749EA612B04A3B500CACC01 /* HomeNotice.swift in Sources */,
 				1749EA322B049E0F00CACC01 /* NoticeViewModel.swift in Sources */,
 				1749EA4A2B049EFB00CACC01 /* AddCouponViewModel.swift in Sources */,
 				1749EA4E2B049F2400CACC01 /* CouponCase.swift in Sources */,
@@ -389,6 +415,8 @@
 				1749EA1B2B049CC500CACC01 /* BackbuttonOnlyIcon.swift in Sources */,
 				1749EA4C2B049F1D00CACC01 /* CouponView.swift in Sources */,
 				1749EA5E2B049FCC00CACC01 /* OtherView.swift in Sources */,
+				1749EA632B04A3D000CACC01 /* RecommendCoffee.swift in Sources */,
+				1749EA652B04A3F500CACC01 /* NoticeCase.swift in Sources */,
 				1749EA442B049E9E00CACC01 /* AddCouponModel.swift in Sources */,
 				1749EA232B049D8C00CACC01 /* Home.swift in Sources */,
 			);
