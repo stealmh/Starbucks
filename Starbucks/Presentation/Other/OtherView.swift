@@ -79,12 +79,13 @@ extension OtherView {
     /// 상단 우측 툴바 Layout
     var otherViewToolbar: some View {
         HStack {
-            Button {
-                // alert
+            NavigationLink {
+                NoticeView()
             } label: {
                 Image(systemName: "bell")
-            }.padding(.trailing, 10)
-            
+                    .padding(.trailing, 10)
+            }
+
             Button {
                 // setting
             } label: {
@@ -198,8 +199,11 @@ extension OtherView {
     /// MultiSection의 Footer를 구성합니다.
     func sectionFooter(section: MultiSection.MultiSectionCase) -> some View {
         switch section {
-        case .order: return AnyView(EmptyView())
         case .pay: return AnyView(Divider())
+        case .order: return AnyView(Divider())
+        case .shop: return AnyView(Divider())
+        case .delivers: return AnyView(Divider())
+        case .customerSupport: return AnyView(EmptyView())
         }
     }
 }
