@@ -8,35 +8,15 @@
 import SwiftUI
 import Combine
 
-enum InfoPaging: CaseIterable {
-    case person
-    case house
-    case circle
-    case square
-    
-    var color: Color {
-        switch self {
-        case .person: return .red
-        case .house: return .orange
-        case .circle: return .yellow
-        case .square: return .green
-        }
-    }
-}
-
 struct CouponInfoView: View {
     private let title = "쿠폰 이용안내"
-    var timer = Timer()
-    @State private var count: Int = 3
-    let futureData: Date = Calendar.current.date(byAdding: .hour, value: 1, to: Date()) ?? Date()
-    @State private var currentPage: InfoPaging = .person
-    @State var visible = CurrentValueSubject<Bool, Never>(false)
-    @State var buttonHidden = false
+    @StateObject private var viewModel = CouponInfoViewModel()
+    
     var body: some View {
         VStack {
             Text("(실제로는 자기네들 온보딩 들어감)")
             ZStack {
-                TabView(selection: $currentPage) {
+                TabView(selection: $viewModel.currentPage) {
                     ForEach(InfoPaging.allCases, id: \.self) { trip in
                         Rectangle()
                             .foregroundColor(trip.color)
@@ -47,68 +27,16 @@ struct CouponInfoView: View {
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 HStack {
-                    Button {
-                        switch currentPage {
-                        case .person: return
-                        case .house:
-                            currentPage = .person
-                        case .circle:
-                            currentPage = .house
-                        case .square:
-                            currentPage = .circle
-                        }
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .fill(.gray)
-                                .frame(width: 50, height: 50)
-                                .overlay {
-                                    Image(systemName: "chevron.backward")
-                                        .resizable()
-                                        .frame(width: 10, height: 15)
-                                        .foregroundColor(.white)
-                                }
-                        }
-                    }
+                    preNextButton(type: .previous, systemName: "chevron.backward")
                     Spacer()
-                    Button {
-                        switch currentPage {
-                        case .person:
-                            currentPage = .house
-                        case .house:
-                            currentPage = .circle
-                        case .circle:
-                            currentPage = .square
-                        case .square: return
-                        }
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .fill(.gray)
-                                .frame(width: 50, height: 50)
-                                .overlay {
-                                    Image(systemName: "chevron.forward")
-                                        .resizable()
-                                        .frame(width: 10, height: 15)
-                                        .foregroundColor(.white)
-                                }
-                        }
-                    }
+                    preNextButton(type: .next, systemName: "chevron.forward")
                 }
-                .opacity(buttonHidden ? 0 : 1)
+                .opacity(viewModel.buttonHidden ? 0 : 1)
                 .padding([.leading, .trailing], 20)
             }
         }
         .navigationSetting(title)
-        .onTapGesture {
-            buttonHidden.toggle()
-            visible.send(buttonHidden)
-        }
-        .onReceive(visible) { publish in
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-                buttonHidden = true
-            }
-        }
+        .onTapGesture { viewModel.viewDidTapped() }
     }
 }
 //MARK: - Preview
@@ -128,5 +56,45 @@ fileprivate extension View {
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: BackbuttonOnlyIcon())
             .toolbar(.hidden, for: .tabBar)
+    }
+}
+//MARK: - Configure Layout
+extension CouponInfoView {
+    private func preNextButton(type: PreNextButtonType, systemName: String) -> some View {
+        Button {
+            viewModel.preNextButtonTapped(type: type)
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(Constants.preNextButtonColor)
+                    .frame(width: Constants.preNextButtonWidth,
+                           height: Constants.preNextButtonHeight)
+                    .overlay {
+                        Image(systemName: systemName)
+                            .resizable()
+                            .frame(width: Constants.preNextButtonInsideImageWidth,
+                                   height: Constants.preNextButtonInsideImageHeight)
+                            .foregroundColor(Constants.preNextButtonInsideImageColor)
+                    }
+            }
+        }
+    }
+}
+//MARK: - Constants
+private extension CouponInfoView {
+    /// 'CouponInfoView' 모든 컴포넌트 사이즈 및 컬러 조정
+    enum Constants {
+        ///버튼의 배경색
+        static let preNextButtonColor: Color = .gray
+        ///버튼의 너비
+        static let preNextButtonWidth: CGFloat = 50
+        ///버튼의 높이
+        static let preNextButtonHeight: CGFloat = 50
+        ///버튼 내부 이미지의 너비
+        static let preNextButtonInsideImageWidth: CGFloat = 10
+        ///버튼 내부 이미지의 높이
+        static let preNextButtonInsideImageHeight: CGFloat = 15
+        ///버튼 내부 이미지의 색
+        static let preNextButtonInsideImageColor: Color = .white
     }
 }
