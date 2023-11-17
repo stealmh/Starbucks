@@ -25,6 +25,7 @@ struct TabBarView_Previews: PreviewProvider {
 }
 //MARK: - Configure Layout
 extension TabBarView {
+    
     var tabbarView: some View {
         ZStack {
             if isLoading {
@@ -47,7 +48,7 @@ extension TabBarView {
                         }
                         .tag(1)
                     
-                    Text("hello")
+                    OrderView()
                         .tabItem {
                             Image(systemName: "cup.and.saucer")
                             Text("Order")

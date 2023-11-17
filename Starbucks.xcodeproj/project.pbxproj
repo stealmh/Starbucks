@@ -51,6 +51,10 @@
 		1779003B2B05A5240014D385 /* CouponInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779003A2B05A5240014D385 /* CouponInfoViewModel.swift */; };
 		1779003D2B05A79F0014D385 /* CouponInfoCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779003C2B05A79F0014D385 /* CouponInfoCase.swift */; };
 		177900412B05B3730014D385 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900402B05B3730014D385 /* ShopView.swift */; };
+		177900432B05B46E0014D385 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900422B05B46E0014D385 /* OrderView.swift */; };
+		177900452B05B5C20014D385 /* OrderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900442B05B5C20014D385 /* OrderHeaderView.swift */; };
+		177900472B05D7410014D385 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900462B05D7410014D385 /* OrderModel.swift */; };
+		1779004A2B05FE670014D385 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 177900492B05FE670014D385 /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +103,9 @@
 		1779003A2B05A5240014D385 /* CouponInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfoViewModel.swift; sourceTree = "<group>"; };
 		1779003C2B05A79F0014D385 /* CouponInfoCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfoCase.swift; sourceTree = "<group>"; };
 		177900402B05B3730014D385 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		177900422B05B46E0014D385 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		177900442B05B5C20014D385 /* OrderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHeaderView.swift; sourceTree = "<group>"; };
+		177900462B05D7410014D385 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1779004A2B05FE670014D385 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +219,9 @@
 		1749EA152B049C4F00CACC01 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				177900422B05B46E0014D385 /* OrderView.swift */,
+				177900442B05B5C20014D385 /* OrderHeaderView.swift */,
+				177900462B05D7410014D385 /* OrderModel.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -347,6 +358,9 @@
 			dependencies = (
 			);
 			name = Starbucks;
+			packageProductDependencies = (
+				177900492B05FE670014D385 /* SwiftUIIntrospect */,
+			);
 			productName = Starbucks;
 			productReference = 1749E9FE2B04997900CACC01 /* Starbucks.app */;
 			productType = "com.apple.product-type.application";
@@ -375,6 +389,9 @@
 				Base,
 			);
 			mainGroup = 1749E9F52B04997900CACC01;
+			packageReferences = (
+				177900482B05FE670014D385 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+			);
 			productRefGroup = 1749E9FF2B04997900CACC01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -409,6 +426,7 @@
 				1749EA542B049F6100CACC01 /* WhatsNewViewModel.swift in Sources */,
 				1749EA302B049E0500CACC01 /* NoticeView.swift in Sources */,
 				1749EA672B04A49200CACC01 /* NoticeDetailModel.swift in Sources */,
+				177900452B05B5C20014D385 /* OrderHeaderView.swift in Sources */,
 				1749EA192B049C9900CACC01 /* StartingPopupView.swift in Sources */,
 				1749EA3C2B049E7500CACC01 /* ScannerView.swift in Sources */,
 				1749EA582B049F9A00CACC01 /* TabBarView.swift in Sources */,
@@ -426,6 +444,7 @@
 				1749EA4E2B049F2400CACC01 /* CouponCase.swift in Sources */,
 				1749EA562B049F6700CACC01 /* WhatsNewCase.swift in Sources */,
 				1749EA502B049F5100CACC01 /* WhatsNewView.swift in Sources */,
+				177900432B05B46E0014D385 /* OrderView.swift in Sources */,
 				1749EA342B049E1A00CACC01 /* ReviewWritePopupView.swift in Sources */,
 				1749EA252B049D9300CACC01 /* HomeViewModel.swift in Sources */,
 				1749EA022B04997900CACC01 /* StarbucksApp.swift in Sources */,
@@ -436,6 +455,7 @@
 				1749EA212B049D5D00CACC01 /* View+.swift in Sources */,
 				1749EA3A2B049E6B00CACC01 /* ScannerVC.swift in Sources */,
 				1749EA1B2B049CC500CACC01 /* BackbuttonOnlyIcon.swift in Sources */,
+				177900472B05D7410014D385 /* OrderModel.swift in Sources */,
 				1749EA4C2B049F1D00CACC01 /* CouponView.swift in Sources */,
 				1749EA5E2B049FCC00CACC01 /* OtherView.swift in Sources */,
 				1749EA632B04A3D000CACC01 /* RecommendCoffee.swift in Sources */,
@@ -643,6 +663,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		177900482B05FE670014D385 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		177900492B05FE670014D385 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 177900482B05FE670014D385 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1749E9F62B04997900CACC01 /* Project object */;
 }
