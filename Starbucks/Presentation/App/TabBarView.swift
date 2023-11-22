@@ -5,22 +5,37 @@
 //  Created by mino on 2023/10/18.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct TabBarView: View {
-    @State private var tabNumber = 0
-    @State private var popupViewToggle = false
-    @State private var isLoading = true
+    private let store: StoreOf<RootReducer>
+    @ObservedObject var viewStore: ViewStoreOf<RootReducer>
+    
+    init(store: StoreOf<RootReducer>) {
+        self.store = store
+        viewStore = ViewStore(self.store, observe: { $0 })
+    }
 
     var body: some View {
-        if popupViewToggle { tabbarView }
-        else { StartingPopupView(popupToggle: $popupViewToggle) }
+        IfLetStore(store.scope(state: \.welcom, action: {.welcome($0)})) {
+            StartingPopupView(store: $0)
+        } else: {
+            tabbarView
+        }
     }
 }
 //MARK: - Preview
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView()
+        NavigationStack {
+            TabBarView(
+                store: StoreOf<RootReducer>(
+                    initialState:.init(),
+                    reducer: { RootReducer()._printChanges() }
+                )
+            )
+        }
     }
 }
 //MARK: - Configure Layout
@@ -28,55 +43,55 @@ extension TabBarView {
     
     var tabbarView: some View {
         ZStack {
-            if isLoading {
+            switch viewStore.isLoading {
+            case true:
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .frame(width: 50, height: 50)
-            } else {
-                TabView(selection: $tabNumber) {
-                    Home()
+            case false:
+                TabView(selection: viewStore.binding(get: \.selectedTab, send: RootReducer.Action.tabSelected)) {
+                    
+                    Home(store: self.store.scope(state: \.home, action: RootReducer.Action.home))
                         .tabItem {
                                 Image(systemName: "house.fill")
                                 Text("홈")
                         }
-                        .tag(0)
+                        .tag(RootReducer.Tab.home)
                     
-                    Text("hello")
+                    PayView(store: self.store.scope(state: \.pay, action: RootReducer.Action.pay))
                         .tabItem {
                             Image(systemName: "creditcard.fill")
                             Text("Pay")
                         }
-                        .tag(1)
+                        .tag(RootReducer.Tab.pay)
                     
-                    OrderView()
+                    OrderView(store: self.store.scope(state: \.order, action: RootReducer.Action.order))
                         .tabItem {
                             Image(systemName: "cup.and.saucer")
                             Text("Order")
                         }
-                        .tag(2)
+                        .tag(RootReducer.Tab.order)
                     
-                    Text("hello")
+                    ShopView(store: self.store.scope(state: \.shop,
+                                                     action: RootReducer.Action.shop))
                         .tabItem {
                             Image(systemName: "cart")
                             Text("Shop")
                         }
-                        .tag(3)
+                        .tag(RootReducer.Tab.shop)
                     
-                    OtherView()
+                    OtherView(store: self.store.scope(state: \.other, action: RootReducer.Action.other))
                         .tabItem {
                             Image(systemName: "ellipsis")
                             Text("Other")
                         }
-                        .tag(4)
+                        .tag(RootReducer.Tab.other)
                 }
                 .accentColor(.green)
             }
         }
         .onAppear {
-            Task {
-                try await Task.sleep(nanoseconds: 2 * 1_000_000_000)
-                isLoading.toggle()
-            }
+            viewStore.send(.onAppear)
         }
     }
 }
