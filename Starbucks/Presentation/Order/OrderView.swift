@@ -5,10 +5,18 @@
 //  Created by DEV IOS on 2023/11/16.
 //
 
+import ComposableArchitecture
 import SwiftUI
 import SwiftUIIntrospect
 
 struct OrderView: View {
+    let store: StoreOf<OrderReducer>
+    @ObservedObject var viewStore: ViewStoreOf<OrderReducer>
+    
+    init(store: StoreOf<OrderReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
     
     var body: some View {
         NavigationStack {
@@ -25,7 +33,7 @@ struct OrderView: View {
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            OrderView()
+            OrderView(store: Store(initialState: .init(), reducer: { OrderReducer() }))
         }
     }
 }
