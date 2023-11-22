@@ -5,6 +5,7 @@
 //  Created by mino on 2023/10/25.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct WhatsNewView: View {
@@ -14,6 +15,14 @@ struct WhatsNewView: View {
     @StateObject var viewModel = WhatsNewViewModel()
     private let title: String = "What's New"
     private let testing: Bool = false
+    
+    let store: StoreOf<WhatsNewReducer>
+    @ObservedObject var viewStore: ViewStoreOf<WhatsNewReducer>
+    
+    init(store: StoreOf<WhatsNewReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
     
     var body: some View {
         ScrollView {
@@ -59,7 +68,7 @@ struct WhatsNewView: View {
 struct WhatsNewView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            WhatsNewView()
+            WhatsNewView(store: Store(initialState: .init(), reducer: { WhatsNewReducer() }))
         }
     }
 }
