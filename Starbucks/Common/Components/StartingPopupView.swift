@@ -5,20 +5,27 @@
 //  Created by mino on 2023/11/15.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct StartingPopupView: View {
-    @Binding var popupToggle: Bool
+//    @Binding var popupToggle: Bool
+    private let store: StoreOf<PopupReducer>
+    @ObservedObject var viewStore: ViewStoreOf<PopupReducer>
+    init(store: StoreOf<PopupReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
+    
     var body: some View {
         VStack {
             ScrollView(showsIndicators: false) {
                 Image("food")
                     .resizable()
             }
-//            .frame(height: 200)
             
             Button {
-                
+                viewStore.send(.detailButtonTapped)
             } label: {
                 Text("자세히 보기")
                     .font(.body)
@@ -28,13 +35,12 @@ struct StartingPopupView: View {
             .frame(maxWidth: .infinity, maxHeight: 50)
             .background(.green)
             .cornerRadius(40)
-//            .padding([.leading, .trailing], 10)
             .padding(.horizontal, 10)
             .padding(.vertical, 10)
             HStack {
                 
                 Button {
-                    //
+                    viewStore.send(.neverShowButtonTapped)
                 } label: {
                     Text("다시보지 않기")
                 }
@@ -42,7 +48,7 @@ struct StartingPopupView: View {
                 Spacer()
                 
                 Button {
-                    popupToggle = true
+                    viewStore.send(.dismissButtonTapped)
                 } label: {
                     HStack {
                         Image(systemName: "multiply")
@@ -59,7 +65,12 @@ struct StartingPopupView: View {
 
 struct StartingPopupView_Previews: PreviewProvider {
     static var previews: some View {
-        StartingPopupView(popupToggle: .constant(false))
+        StartingPopupView(
+            store: StoreOf<PopupReducer>(
+                initialState: .init(),
+        reducer: {
+            PopupReducer()._printChanges()
+        }))
     }
 }
 
