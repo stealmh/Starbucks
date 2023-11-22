@@ -47,11 +47,9 @@ class WhatsNewViewModel: ObservableObject {
             pageNumber += 1
             Task { @MainActor in
                 let a = try await request(type: Movie.self)
-                _ = a.results.map {
-                    if $0.id != nil {
-                        movieList.append($0)
-                    }
-                }
+                _ = a.results
+                        .filter { $0.id != nil }
+                        .map { movieList.append($0) }
             }
         }
 
