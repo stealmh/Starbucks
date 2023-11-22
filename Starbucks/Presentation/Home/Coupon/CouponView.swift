@@ -5,12 +5,23 @@
 //  Created by mino on 2023/10/25.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct CouponView: View {
     private let title = "쿠폰"
     @State private var selectedTabBar: CouponCase = .usableCoupon
+    let store: StoreOf<CouponReducer>
+    @ObservedObject var viewStore: ViewStoreOf<CouponReducer>
+    var usableCouponList: [String] = []
     
+    init(store: StoreOf<CouponReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
+}
+//MARK: - View
+extension CouponView {
     var body: some View {
         VStack {
             Rectangle()
@@ -32,10 +43,14 @@ struct CouponView: View {
             .padding([.leading, .trailing], 10)
             .frame(height: 60)
             
-            ScrollView {
-                Text("scrollTest")
+            switch selectedTabBar {
+            case .usableCoupon:
+                UsableCouponView()
+            case .couponHistory:
+                CouponHistoryView()
             }
         }
+        .animation(.linear, value: selectedTabBar)
         .navigationSetting(title)
     }
 }
@@ -43,7 +58,7 @@ struct CouponView: View {
 struct CouponView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CouponView()
+            CouponView(store: Store(initialState: .init(), reducer: { CouponReducer() }))
         }
     }
 }

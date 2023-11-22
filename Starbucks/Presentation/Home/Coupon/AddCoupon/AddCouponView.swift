@@ -15,6 +15,7 @@ struct AddCouponView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            Divider()
             /// Top Line, Guide Label, Radio Button Header
             addCouponHeaderView
             /// Coupon Type
@@ -30,6 +31,7 @@ struct AddCouponView: View {
             /// 등록하기
             registerButtonView
         }
+//        .minimumScaleFactor(0.4)
         .navigationSetting(title)
     }
 }
@@ -51,7 +53,7 @@ extension AddCouponView {
     }
     /// Divide Line / Guide Label, Radio Button을 가진 View
     var addCouponHeaderView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             Rectangle()
                 .frame(height: 0.2)
                 .padding(.top, 5)
@@ -246,7 +248,7 @@ extension AddCouponView {
         )
         .padding(.top, 5)
         .padding([.leading, .trailing], 10)
-        VStack(alignment: .leading, spacing: 15) {
+        VStack(alignment: .leading, spacing: 0) {
             ForEach(StarCouponGuide.mock, id: \.self) { text in
                 Text(text.text)
                     .foregroundColor(text.id == "guide" ? .green : .black.opacity(0.7))
