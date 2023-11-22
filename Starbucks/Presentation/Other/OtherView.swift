@@ -5,6 +5,7 @@
 //  Created by mino on 2023/10/25.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct OtherView: View {
@@ -14,6 +15,14 @@ struct OtherView: View {
     let sectionItems = Array(repeating: GridItem(.flexible()), count: 2)
     let gridContent = QuickMenu.mock
     let sectionContent = MultiSection.mock
+    
+    let store: StoreOf<OtherReducer>
+    @ObservedObject var viewStore: ViewStoreOf<OtherReducer>
+    
+    init(store: StoreOf<OtherReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
     
     var body: some View {
         NavigationStack {
@@ -57,7 +66,7 @@ struct OtherView: View {
 struct OtherView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            OtherView()
+            OtherView(store: Store(initialState: .init(), reducer: { OtherReducer() }))
         }
     }
 }
@@ -80,7 +89,7 @@ extension OtherView {
     var otherViewToolbar: some View {
         HStack {
             NavigationLink {
-                NoticeView()
+//                NoticeView()
             } label: {
                 Image(systemName: "bell")
                     .padding(.trailing, 10)
