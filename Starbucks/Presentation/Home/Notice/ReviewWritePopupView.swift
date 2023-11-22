@@ -5,13 +5,20 @@
 //  Created by mino on 2023/10/25.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct ReviewWritePopupView: View {
-    @Binding var isPresented: Bool
-    @Binding var style: PopupStyle
-    @ObservedObject var viewModel: NoticeViewModel
+    let store: StoreOf<NoticePopupReducer>
+    @ObservedObject var viewStore: ViewStoreOf<NoticePopupReducer>
     
+    init(store: StoreOf<NoticePopupReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
+}
+//MARK: - View
+extension ReviewWritePopupView {
     var body: some View {
         ZStack(alignment: .topLeading) {
             Rectangle()
@@ -19,13 +26,13 @@ struct ReviewWritePopupView: View {
                 .foregroundColor(.white)
                 .shadow(radius: 7)
             VStack(alignment: .leading) {
-                Text(style.title)
-                    .font(style == .review ? .title3 : .subheadline)
-                    .fontWeight(style == .review ? .bold : .medium)
+                Text(viewStore.style.title)
+                    .font(viewStore.style == .review ? .title3 : .subheadline)
+                    .fontWeight(viewStore.style == .review ? .bold : .medium)
                     .padding(.leading, Constants.textLeading)
                     .padding(.top, Constants.textTop)
                 HStack {
-                    Text(style.content)
+                    Text(viewStore.style.content)
                         .fontWeight(.thin)
                         .lineSpacing(Constants.textSpacing)
                         .padding([.leading], Constants.textLeading)
@@ -36,9 +43,9 @@ struct ReviewWritePopupView: View {
                 HStack(spacing: Constants.buttonSpacing) {
                     Spacer()
                     Button {
-                        isPresented.toggle()
+                        viewStore.send(.dismiss)
                     } label: {
-                        Text(style.firstButtonTitle)
+                        Text(viewStore.style.firstButtonTitle)
                             .padding([.leading, .trailing], 15)
                             .bold()
                             .foregroundColor(.green)
@@ -49,14 +56,14 @@ struct ReviewWritePopupView: View {
                                     .frame(height: Constants.buttonHeight))
                     }
                     Button {
-                        switch style {
+                        switch viewStore.style {
                         case .deleteMessage:
-                            viewModel.deleteMessage()
+                            viewStore.send(.deleteMessage)
                         case .review:
-                            viewModel.writeReview()
+                            viewStore.send(.writeReview)
                         }
                     } label: {
-                        Text(style.secondButtonTitle)
+                        Text(viewStore.style.secondButtonTitle)
                             .padding([.leading, .trailing], 15)
                             .bold()
                             .foregroundColor(.white)
@@ -69,17 +76,16 @@ struct ReviewWritePopupView: View {
                 .padding(.trailing, Constants.buttonTrailing)
                 .padding(.bottom, Constants.buttonBottom)
             }
+
         }
-        .frame(height: style.viewHeight)
+        .frame(height: viewStore.style.viewHeight)
         .padding([.leading, .trailing], Constants.viewLeftRightPadding)
     }
 }
 //MARK: - Previews
 struct ReviewWritePopupView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewWritePopupView(isPresented: .constant(false),
-                             style: .constant(.review),
-                             viewModel: NoticeViewModel())
+        ReviewWritePopupView(store: Store(initialState: .init(), reducer: { NoticePopupReducer()._printChanges() }))
     }
 }
 //MARK: - Constants

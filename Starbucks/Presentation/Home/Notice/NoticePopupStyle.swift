@@ -10,7 +10,7 @@ import Foundation
 enum PopupStyle {
     case review
     case deleteMessage
-    
+
     /// 팝업 뷰의 제목입니다.
     var title: String {
         switch self {

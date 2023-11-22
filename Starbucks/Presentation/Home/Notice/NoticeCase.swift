@@ -18,7 +18,8 @@ enum NoticeImageCase: CaseIterable {
         }
     }
 }
- enum NoticeCase: SqaureBoxLayer, CaseIterable {
+
+enum NoticeCase: SqaureBoxLayer, CaseIterable {
     case all
     case promotionEvent
     case couponAlert
