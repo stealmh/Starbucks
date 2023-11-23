@@ -9,13 +9,29 @@ import ComposableArchitecture
 import Foundation
 
 struct CouponHistoryDetailReducer: Reducer {
-    struct State: Equatable {}
+    struct State: Equatable {
+        @BindingState var scrollDisable: Bool = false
+        @BindingState var couponGuideCheck: Bool = true
+    }
     
-    enum Action: Equatable {}
+    enum Action: BindableAction, Equatable {
+        case messageFoldButtonTapped
+        case couponGuideButtonTapped
+        case binding(BindingAction<State>)
+    }
     
     var body: some ReducerOf<Self> {
         Reduce {state, action in
-            switch action {}
+            switch action {
+            case .messageFoldButtonTapped:
+                state.scrollDisable.toggle()
+                return .none
+            case .couponGuideButtonTapped:
+                state.couponGuideCheck.toggle()
+                return .none
+            case .binding:
+                return .none
+            }
         }
     }
 }

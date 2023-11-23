@@ -10,8 +10,8 @@ import SwiftUI
 
 struct CouponHistoryDetailView: View {
     private let title: String = "선물내역"
-    @State var scrollDisable: Bool = false
-    @State var couponGuideCheck: Bool = true
+//    @State var scrollDisable: Bool = false
+//    @State var couponGuideCheck: Bool = true
     let store: StoreOf<CouponHistoryDetailReducer>
     @ObservedObject var viewStore: ViewStoreOf<CouponHistoryDetailReducer>
     
@@ -55,18 +55,20 @@ struct CouponHistoryDetailView: View {
                                     .padding([.leading, .trailing], 30)
                                 
                                 Button {
-                                    scrollDisable.toggle()
-                                    //                                couponGuideCheck.toggle()
+                                    viewStore.send(.messageFoldButtonTapped)
                                 } label: {
-                                    Text("메세지 내용 닫기")
+                                    let openText = "메세지 내용 열기"
+                                    let closeText = "메세지 내용 닫기"
+                                    Text(viewStore.scrollDisable ? closeText : openText)
                                         .foregroundColor(.gray)
                                         .font(.callout)
+                                        .animation(.easeIn, value: viewStore.scrollDisable)
                                 }
                                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0))
                                 
                             }
                         }
-                    DisclosureGroup(isExpanded: $scrollDisable) {
+                    DisclosureGroup(isExpanded: viewStore.$scrollDisable) {
                         ZStack {
                             VStack {
                                 Image("pizza")
@@ -127,12 +129,12 @@ struct CouponHistoryDetailView: View {
                                     .padding(.leading, 134)
                             }
                         }
-                        .opacity(scrollDisable ? 1 : 0)
+                        .opacity(viewStore.scrollDisable ? 1 : 0)
                     } label: {
                         Text("")
                     }
                     .buttonStyle(PlainButtonStyle()).accentColor(.clear).disabled(true)
-//                    .animation(.easeInOut, value: scrollDisable)
+//                    .animation(.easeInOut, value: viewStore.scrollDisable)
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 5) {
@@ -180,11 +182,11 @@ struct CouponHistoryDetailView: View {
                         .font(.callout)
                         .foregroundColor(.black.opacity(0.6))
                         
-                        DisclosureGroup(isExpanded: $couponGuideCheck) {
+                        DisclosureGroup(isExpanded: viewStore.$couponGuideCheck) {
                             Rectangle()
                                 .stroke(style: .init(lineWidth: 0.5))
 //                                .frame(height: couponGuideCheck ? height * 0.4 : 0)
-                                .frame(minHeight: couponGuideCheck ? height * 0.35 : 0)
+                                .frame(minHeight: viewStore.couponGuideCheck ? height * 0.35 : 0)
                                 .padding(.trailing, 18)
                                 .overlay {
                                     VStack(alignment: .leading, spacing: 0) {
@@ -203,7 +205,7 @@ struct CouponHistoryDetailView: View {
                                     .padding(10)
                                     .foregroundColor(.black.opacity(0.6))
                                     .font(.caption)
-                                    .opacity(couponGuideCheck ? 1 : 0)
+                                    .opacity(viewStore.couponGuideCheck ? 1 : 0)
                                 }
                         } label: {
                             Rectangle()
@@ -231,17 +233,16 @@ struct CouponHistoryDetailView: View {
                         //                .padding(.top, 10)
                         .padding(.leading, 20)
                         .buttonStyle(PlainButtonStyle()).accentColor(.clear).disabled(true)
-                        .animation(.easeInOut, value: couponGuideCheck)
+                        .animation(.easeInOut, value: viewStore.couponGuideCheck)
                         .onTapGesture {
-                            couponGuideCheck.toggle()
-                            print("tapped")
+                            viewStore.send(.couponGuideButtonTapped)
                         }
                     }
                     //            .animation(.easeInOut, value: !couponGuideCheck)
                     .padding(EdgeInsets(top: 10, leading: 00, bottom: 0, trailing: 0))
                 }
             }
-            .scrollDisabled(!scrollDisable)
+            .scrollDisabled(!viewStore.scrollDisable)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
