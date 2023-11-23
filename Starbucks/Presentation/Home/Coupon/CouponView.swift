@@ -43,14 +43,16 @@ extension CouponView {
             .padding([.leading, .trailing], 10)
             .frame(height: 60)
             
-            switch selectedTabBar {
-            case .usableCoupon:
-                UsableCouponView()
-            case .couponHistory:
-                CouponHistoryView()
+            IfLetStore(self.store.scope(state: \.usableCoupon, action: { .usableCoupon($0) })) { store in
+                UsableCouponView(store: store)
             }
+            
+            IfLetStore(self.store.scope(state: \.couponHistory, action: { .couponHistory($0) })) { store in
+                CouponHistoryView(store: store)
+            }
+
         }
-        .animation(.linear, value: selectedTabBar)
+        .animation(.linear, value: viewStore.couponCase)
         .navigationSetting(title)
     }
 }
@@ -58,7 +60,7 @@ extension CouponView {
 struct CouponView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CouponView(store: Store(initialState: .init(), reducer: { CouponReducer() }))
+            CouponView(store: Store(initialState: .init(), reducer: { CouponReducer()._printChanges() }))
         }
     }
 }
@@ -67,13 +69,14 @@ extension CouponView {
     func buttonUI(coupon: CouponCase, geo: GeometryProxy) -> some View {
         return HStack {
             Button {
-                selectedTabBar = coupon
+//                selectedTabBar = coupon
+                viewStore.send(.menuButtonTapped(coupon))
             } label: {
                 Text(coupon.title)
-                    .foregroundColor(selectedTabBar == coupon ? .white : .gray)
+                    .foregroundColor(viewStore.couponCase == coupon ? .white : .gray)
             }
             .frame(width: geo.size.width * 0.5, height: 45)
-            .background(selectedTabBar == coupon ? .green : .white)
+            .background(viewStore.couponCase == coupon ? .green : .white)
         }
     }
 }
