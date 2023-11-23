@@ -10,7 +10,6 @@ import SwiftUI
 
 struct CouponInfoView: View {
     private let title = "쿠폰 이용안내"
-//    @StateObject private var viewModel = CouponInfoViewModel()
     let store: StoreOf<CouponInfoReducer>
     @ObservedObject var viewStore: ViewStoreOf<CouponInfoReducer>
     

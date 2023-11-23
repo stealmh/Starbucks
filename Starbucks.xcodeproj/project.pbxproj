@@ -51,7 +51,6 @@
 		1749EA672B04A49200CACC01 /* NoticeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA662B04A49200CACC01 /* NoticeDetailModel.swift */; };
 		1749EA692B04A51D00CACC01 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA682B04A51D00CACC01 /* MultiSection.swift */; };
 		1749EA6C2B04A88800CACC01 /* CouponInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA6B2B04A88800CACC01 /* CouponInfoView.swift */; };
-		1779003B2B05A5240014D385 /* CouponInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779003A2B05A5240014D385 /* CouponInfoViewModel.swift */; };
 		1779003D2B05A79F0014D385 /* CouponInfoCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779003C2B05A79F0014D385 /* CouponInfoCase.swift */; };
 		177900412B05B3730014D385 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900402B05B3730014D385 /* ShopView.swift */; };
 		177900432B05B46E0014D385 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900422B05B46E0014D385 /* OrderView.swift */; };
@@ -123,7 +122,6 @@
 		1749EA662B04A49200CACC01 /* NoticeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailModel.swift; sourceTree = "<group>"; };
 		1749EA682B04A51D00CACC01 /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
 		1749EA6B2B04A88800CACC01 /* CouponInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfoView.swift; sourceTree = "<group>"; };
-		1779003A2B05A5240014D385 /* CouponInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfoViewModel.swift; sourceTree = "<group>"; };
 		1779003C2B05A79F0014D385 /* CouponInfoCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfoCase.swift; sourceTree = "<group>"; };
 		177900402B05B3730014D385 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		177900422B05B46E0014D385 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -399,7 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				1749EA6B2B04A88800CACC01 /* CouponInfoView.swift */,
-				1779003A2B05A5240014D385 /* CouponInfoViewModel.swift */,
 				1779003C2B05A79F0014D385 /* CouponInfoCase.swift */,
 				17DD651E2B0ED08500AD6189 /* CouponInfoReducer.swift */,
 			);
@@ -539,7 +536,6 @@
 				1749EA522B049F5900CACC01 /* WhatsNewCell.swift in Sources */,
 				1749EA5A2B049FB700CACC01 /* SectionDetail.swift in Sources */,
 				17DD651F2B0ED08500AD6189 /* CouponInfoReducer.swift in Sources */,
-				1779003B2B05A5240014D385 /* CouponInfoViewModel.swift in Sources */,
 				1749EA1D2B049CDB00CACC01 /* MenuListCard.swift in Sources */,
 				179E464C2B0D7F9D00A5B98C /* UsableCouponView.swift in Sources */,
 				1749EA612B04A3B500CACC01 /* HomeNotice.swift in Sources */,
