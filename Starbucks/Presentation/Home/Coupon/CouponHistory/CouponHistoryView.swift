@@ -91,8 +91,8 @@ extension CouponHistoryView {
             .foregroundColor(.gray)
             Spacer()
             if drilldown {
-                NavigationLink {
-                    CouponHistoryDetailView()
+                Button {
+                    viewStore.send(.detailButtonTapped)
                 } label: {
                     Image(systemName: "chevron.right")
                         .foregroundColor(.black)
