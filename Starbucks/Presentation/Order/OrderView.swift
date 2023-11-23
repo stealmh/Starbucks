@@ -7,7 +7,6 @@
 
 import ComposableArchitecture
 import SwiftUI
-import SwiftUIIntrospect
 
 struct OrderView: View {
     let store: StoreOf<OrderReducer>

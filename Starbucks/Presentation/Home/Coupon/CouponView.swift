@@ -58,7 +58,7 @@ extension CouponView {
         .animation(.linear, value: viewStore.couponCase)
         .navigationSetting(title, viewStore: viewStore)
         .navigationDestination(store: self.store.scope(state: \.$destination, action: {  .destination($0)}), state: /CouponReducer.Destination.State.addCoupon, action: CouponReducer.Destination.Action.addCoupon, destination: { store in
-            AddCouponView()
+            AddCouponView(store: store)
         })
         .navigationDestination(store: self.store.scope(state: \.$destination, action: {  .destination($0)}), state: /CouponReducer.Destination.State.info, action: CouponReducer.Destination.Action.info, destination: { store in
             CouponInfoView(store: store)

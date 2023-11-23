@@ -5,13 +5,20 @@
 //  Created by mino on 2023/10/25.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct AddCouponView: View {
     private let title = "쿠폰 등록"
-    @StateObject private var viewModel = AddCouponViewModel()
-    @FocusState private var focusField: Field?
+    @FocusState private var focusField: AddCouponReducer.State.Field?
     @State var isPresented: Bool = false
+    
+    let store: StoreOf<AddCouponReducer>
+    @ObservedObject var viewStore: ViewStoreOf<AddCouponReducer>
+    init(store: StoreOf<AddCouponReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -19,7 +26,7 @@ struct AddCouponView: View {
             /// Top Line, Guide Label, Radio Button Header
             addCouponHeaderView
             /// Coupon Type
-            switch viewModel.selectRadioButton {
+            switch viewStore.selectRadioButton {
             case .recipe:
                 recipeCouponView
             case .mms:
@@ -39,7 +46,7 @@ struct AddCouponView: View {
 struct CouponRegisterView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AddCouponView()
+            AddCouponView(store: Store(initialState: .init(), reducer: { AddCouponReducer() }))
         }
     }
 }
@@ -63,8 +70,8 @@ extension AddCouponView {
             /// Coupon Radio Button
             HStack {
                 ForEach(RadioButtonType.allCases, id: \.self) { item in
-                    radioButton(seleted: viewModel.selectRadioButton, item)
-                        .onTapGesture { viewModel.selectRadioButton = item }
+                    radioButton(seleted: viewStore.selectRadioButton, item)
+                        .onTapGesture { viewStore.send(.radioButtonTapped(item)) }
                 }
             }
             .padding(10)
@@ -77,27 +84,27 @@ extension AddCouponView {
                 .font(.subheadline)
                 .padding([.leading, .trailing], 10)
             HStack {
-                textFieldChecker(text: $viewModel.recipeText1,
-                                 nextText: $viewModel.recipeText2,
+                textFieldChecker(text: viewStore.$recipeText1,
+                                 nextText: viewStore.$recipeText2,
                                  focuseBinding: $focusField,
                                  field: .recipe1,
                                  nextField: .recipe2, limitCount: 4, nil)
                 Text("-")
-                textFieldChecker(text: $viewModel.recipeText2,
-                                 nextText: $viewModel.recipeText3,
+                textFieldChecker(text: viewStore.$recipeText2,
+                                 nextText: viewStore.$recipeText3,
                                  focuseBinding: $focusField,
                                  field: .recipe2,
                                  nextField: .recipe3, limitCount: 5, nil)
                 .frame(width: 100)
                 Text("-")
-                textFieldChecker(text: $viewModel.recipeText3,
-                                 nextText: $viewModel.recipeText4,
+                textFieldChecker(text: viewStore.$recipeText3,
+                                 nextText: viewStore.$recipeText4,
                                  focuseBinding: $focusField,
                                  field: .recipe3,
                                  nextField: .recipe4, limitCount: 4, nil)
                 Text("-")
-                textFieldChecker(text: $viewModel.recipeText4,
-                                 nextText: $viewModel.recipeText4,
+                textFieldChecker(text: viewStore.$recipeText4,
+                                 nextText: viewStore.$recipeText4,
                                  focuseBinding: $focusField,
                                  field: .recipe4,
                                  nextField: .recipe4, limitCount: 4, true)
@@ -107,7 +114,7 @@ extension AddCouponView {
             Text("쿠폰 등록코드 8자리를 입력해주세요")
                 .padding([.leading, .trailing, .top], 10)
                 .font(.subheadline)
-            TextField(text: $viewModel.recipeCouponRegisterTextField) {
+            TextField(text: viewStore.$recipeCouponRegisterTextField) {
                 
             }
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -127,7 +134,7 @@ extension AddCouponView {
                 .padding(10)
             }
             .navigationDestination(isPresented: $isPresented) {
-                BarcodeScannerView(barcodeResult: $viewModel.recipeCouponRegisterTextField, isPresented: $isPresented)
+                BarcodeScannerView(barcodeResult: viewStore.$recipeCouponRegisterTextField, isPresented: $isPresented)
             }
             
            VStack(alignment: .leading, spacing: 15) {
@@ -148,23 +155,23 @@ extension AddCouponView {
                 .font(.subheadline)
                 .padding([.leading, .trailing], 10)
             HStack {
-                textFieldChecker(text: $viewModel.mmsText1,
-                                 nextText: $viewModel.mmsText2,
+                textFieldChecker(text: viewStore.$mmsText1,
+                                 nextText: viewStore.$mmsText2,
                                  focuseBinding: $focusField,
                                  field: .mms1,
                                  nextField: .mms2,
                                  limitCount: 4, nil)
                 Text("-")
-                textFieldChecker(text: $viewModel.mmsText2,
-                                 nextText: $viewModel.mmsText3,
+                textFieldChecker(text: viewStore.$mmsText2,
+                                 nextText: viewStore.$mmsText3,
                                  focuseBinding: $focusField,
                                  field: .mms2,
                                  nextField: .mms3,
                                  limitCount: 5, nil)
                 .frame(width: 100)
                 Text("-")
-                textFieldChecker(text: $viewModel.mmsText3,
-                                 nextText: $viewModel.mmsText3,
+                textFieldChecker(text: viewStore.$mmsText3,
+                                 nextText: viewStore.$mmsText3,
                                  focuseBinding: $focusField,
                                  field: .mms3,
                                  nextField: .mms3,
@@ -175,7 +182,7 @@ extension AddCouponView {
             Text("수신자(선물 받은 사람)의 휴대폰 번호를 입력해주세요.")
                 .padding(10)
                 .font(.subheadline)
-            TextField(text: $viewModel.mmsCouponPhoneNumberTextField) {
+            TextField(text: viewStore.$mmsCouponPhoneNumberTextField) {
                 
             }
             .keyboardType(.numberPad)
@@ -204,16 +211,16 @@ extension AddCouponView {
                 .font(.subheadline)
                 .padding([.leading, .trailing], 10)
             HStack {
-                textFieldChecker(text: $viewModel.starText1,
-                                 nextText: $viewModel.starText2,
+                textFieldChecker(text: viewStore.$starText1,
+                                 nextText: viewStore.$starText2,
                                  focuseBinding: $focusField,
                                  field: .star1,
                                  nextField: .star2,
                                  limitCount: 4,
                                  nil)
                 Text("-")
-                textFieldChecker(text: $viewModel.starText2,
-                                 nextText: $viewModel.starText3,
+                textFieldChecker(text: viewStore.$starText2,
+                                 nextText: viewStore.$starText3,
                                  focuseBinding: $focusField,
                                  field: .star2,
                                  nextField: .star3,
@@ -221,8 +228,8 @@ extension AddCouponView {
                                  nil)
                 .frame(width: 100)
                 Text("-")
-                textFieldChecker(text: $viewModel.starText3,
-                                 nextText: $viewModel.starText3,
+                textFieldChecker(text: viewStore.$starText3,
+                                 nextText: viewStore.$starText3,
                                  focuseBinding: $focusField,
                                  field: .star3,
                                  nextField: .star3,
@@ -236,7 +243,7 @@ extension AddCouponView {
         Text("PIN 번호를 8자리를 입력해주세요.")
             .padding(10)
             .font(.subheadline)
-            TextField(text: $viewModel.starCouponPinNumberTextField) {
+            TextField(text: viewStore.$starCouponPinNumberTextField) {
             
         }
         .keyboardType(.numberPad)
@@ -305,9 +312,9 @@ extension AddCouponView {
     /// - Returns: 그러한 조건을 만족하는 TextField를 반환합니다.
     func textFieldChecker(text: Binding<String>,
                           nextText: Binding<String>,
-                          focuseBinding: FocusState<Field?>.Binding,
-                          field: Field,
-                          nextField: Field,
+                          focuseBinding: FocusState<AddCouponReducer.State.Field?>.Binding,
+                          field: AddCouponReducer.State.Field,
+                          nextField: AddCouponReducer.State.Field,
                           limitCount: Int,
                           _ last: Bool?) -> some View {
         TextField(text: text, label: {

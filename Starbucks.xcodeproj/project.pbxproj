@@ -34,7 +34,6 @@
 		1749EA442B049E9E00CACC01 /* AddCouponModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA432B049E9E00CACC01 /* AddCouponModel.swift */; };
 		1749EA462B049EE400CACC01 /* AddCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA452B049EE400CACC01 /* AddCouponView.swift */; };
 		1749EA482B049EED00CACC01 /* RadioButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA472B049EED00CACC01 /* RadioButtonType.swift */; };
-		1749EA4A2B049EFB00CACC01 /* AddCouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA492B049EFB00CACC01 /* AddCouponViewModel.swift */; };
 		1749EA4C2B049F1D00CACC01 /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA4B2B049F1D00CACC01 /* CouponView.swift */; };
 		1749EA4E2B049F2400CACC01 /* CouponCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA4D2B049F2400CACC01 /* CouponCase.swift */; };
 		1749EA502B049F5100CACC01 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA4F2B049F5100CACC01 /* WhatsNewView.swift */; };
@@ -105,7 +104,6 @@
 		1749EA432B049E9E00CACC01 /* AddCouponModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponModel.swift; sourceTree = "<group>"; };
 		1749EA452B049EE400CACC01 /* AddCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponView.swift; sourceTree = "<group>"; };
 		1749EA472B049EED00CACC01 /* RadioButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonType.swift; sourceTree = "<group>"; };
-		1749EA492B049EFB00CACC01 /* AddCouponViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponViewModel.swift; sourceTree = "<group>"; };
 		1749EA4B2B049F1D00CACC01 /* CouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponView.swift; sourceTree = "<group>"; };
 		1749EA4D2B049F2400CACC01 /* CouponCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCase.swift; sourceTree = "<group>"; };
 		1749EA4F2B049F5100CACC01 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
@@ -360,7 +358,6 @@
 				1749EA382B049E5C00CACC01 /* BarcodeScanner */,
 				1749EA452B049EE400CACC01 /* AddCouponView.swift */,
 				1749EA472B049EED00CACC01 /* RadioButtonType.swift */,
-				1749EA492B049EFB00CACC01 /* AddCouponViewModel.swift */,
 				179E46532B0DF99E00A5B98C /* AddCouponReducer.swift */,
 			);
 			path = AddCoupon;
@@ -540,7 +537,6 @@
 				179E464C2B0D7F9D00A5B98C /* UsableCouponView.swift in Sources */,
 				1749EA612B04A3B500CACC01 /* HomeNotice.swift in Sources */,
 				179E464E2B0D7FA500A5B98C /* CouponHistoryView.swift in Sources */,
-				1749EA4A2B049EFB00CACC01 /* AddCouponViewModel.swift in Sources */,
 				1779003D2B05A79F0014D385 /* CouponInfoCase.swift in Sources */,
 				17CD2F852B06E91C003EE5FA /* PopupReducer.swift in Sources */,
 				1749EA4E2B049F2400CACC01 /* CouponCase.swift in Sources */,
