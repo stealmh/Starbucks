@@ -5,12 +5,21 @@
 //  Created by mino on 2023/11/22.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct CouponHistoryDetailView: View {
     private let title: String = "선물내역"
     @State var scrollDisable: Bool = false
     @State var couponGuideCheck: Bool = true
+    let store: StoreOf<CouponHistoryDetailReducer>
+    @ObservedObject var viewStore: ViewStoreOf<CouponHistoryDetailReducer>
+    
+    init(store: StoreOf<CouponHistoryDetailReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
+    
     var body: some View {
         GeometryReader { geo in
             let width = geo.size.width
@@ -245,7 +254,7 @@ struct CouponHistoryDetailView: View {
 struct CouponHistoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CouponHistoryDetailView()
+            CouponHistoryDetailView(store: Store(initialState: .init(), reducer: { CouponHistoryDetailReducer() }))
         }
     }
 }
