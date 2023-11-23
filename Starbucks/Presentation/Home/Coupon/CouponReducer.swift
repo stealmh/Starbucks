@@ -54,6 +54,8 @@ struct CouponReducer: Reducer {
         case usableCoupon(UsableCouponReducer.Action)
         case couponHistory(CouponHistoryReducer.Action)
         case menuButtonTapped(CouponCase)
+        case infoToolbarTapped
+        case addCouponToolbarTapped
     }
     
     var body: some ReducerOf<Self> {
@@ -66,6 +68,12 @@ struct CouponReducer: Reducer {
                 return .none
             case .couponHistory(.detailButtonTapped):
                 state.destination = .couponHistoryDetail()
+                return .none
+            case .infoToolbarTapped:
+                state.destination = .info()
+                return .none
+            case .addCouponToolbarTapped:
+                state.destination = .addCoupon()
                 return .none
             }
         }

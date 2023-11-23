@@ -56,7 +56,13 @@ extension CouponView {
 
         }
         .animation(.linear, value: viewStore.couponCase)
-        .navigationSetting(title)
+        .navigationSetting(title, viewStore: viewStore)
+        .navigationDestination(store: self.store.scope(state: \.$destination, action: {  .destination($0)}), state: /CouponReducer.Destination.State.addCoupon, action: CouponReducer.Destination.Action.addCoupon, destination: { store in
+            AddCouponView()
+        })
+        .navigationDestination(store: self.store.scope(state: \.$destination, action: {  .destination($0)}), state: /CouponReducer.Destination.State.info, action: CouponReducer.Destination.Action.info, destination: { store in
+            CouponInfoView(store: store)
+        })
     }
 }
 //MARK: - Preview
@@ -85,7 +91,7 @@ extension CouponView {
 }
 //MARK: - Configure NavigationBar
 fileprivate extension View {
-    func navigationSetting(_ title: String) -> some View {
+    func navigationSetting(_ title: String, viewStore: ViewStoreOf<CouponReducer>) -> some View {
         self
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(title)
@@ -94,17 +100,18 @@ fileprivate extension View {
             .toolbar(.hidden, for: .tabBar)
             .toolbar {
                 HStack {
-                    NavigationLink {
-                        AddCouponView()
+                    Button {
+                        viewStore.send(.addCouponToolbarTapped)
                     } label: {
                         Image(systemName: "plus")
                     }
-                    
-                    NavigationLink {
-                        CouponInfoView()
+
+                    Button {
+                        viewStore.send(.infoToolbarTapped)
                     } label: {
                         Image(systemName: "info.circle")
                     }
+
                     Spacer()
                 }
                 .foregroundColor(.gray)

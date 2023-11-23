@@ -22,6 +22,7 @@ class CouponInfoViewModel: ObservableObject {
     var cancellable = Set<AnyCancellable>()
     
     init() {
+        print("CouponInfoViewModel init")
         buttonVisibleDetect()
     }
     
