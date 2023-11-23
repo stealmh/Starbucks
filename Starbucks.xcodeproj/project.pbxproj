@@ -61,6 +61,7 @@
 		179E464E2B0D7FA500A5B98C /* CouponHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E464D2B0D7FA500A5B98C /* CouponHistoryView.swift */; };
 		179E46502B0D868F00A5B98C /* CouponHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E464F2B0D868F00A5B98C /* CouponHistoryDetailView.swift */; };
 		179E46522B0D9A9100A5B98C /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E46512B0D9A9100A5B98C /* Color+.swift */; };
+		179E46542B0DF99E00A5B98C /* AddCouponReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E46532B0DF99E00A5B98C /* AddCouponReducer.swift */; };
 		17CD2F832B06E780003EE5FA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 17CD2F822B06E780003EE5FA /* ComposableArchitecture */; };
 		17CD2F852B06E91C003EE5FA /* PopupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD2F842B06E91C003EE5FA /* PopupReducer.swift */; };
 		17CD2F872B06F650003EE5FA /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD2F862B06F650003EE5FA /* RootReducer.swift */; };
@@ -69,6 +70,10 @@
 		17CD2F8F2B070A52003EE5FA /* OrderReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD2F8E2B070A52003EE5FA /* OrderReducer.swift */; };
 		17CD2F912B070A62003EE5FA /* ShopReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD2F902B070A62003EE5FA /* ShopReducer.swift */; };
 		17CD2F932B070A6C003EE5FA /* OtherReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD2F922B070A6C003EE5FA /* OtherReducer.swift */; };
+		17DD651F2B0ED08500AD6189 /* CouponInfoReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD651E2B0ED08500AD6189 /* CouponInfoReducer.swift */; };
+		17DD65212B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65202B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift */; };
+		17DD65252B0ED3A300AD6189 /* UsableCouponReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65242B0ED3A300AD6189 /* UsableCouponReducer.swift */; };
+		17DD65282B0ED40100AD6189 /* CouponHistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65272B0ED40100AD6189 /* CouponHistoryReducer.swift */; };
 		17EBC3B32B0C4CF4006EE83D /* NoticePopupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EBC3B22B0C4CF4006EE83D /* NoticePopupReducer.swift */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +133,7 @@
 		179E464D2B0D7FA500A5B98C /* CouponHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryView.swift; sourceTree = "<group>"; };
 		179E464F2B0D868F00A5B98C /* CouponHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryDetailView.swift; sourceTree = "<group>"; };
 		179E46512B0D9A9100A5B98C /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		179E46532B0DF99E00A5B98C /* AddCouponReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponReducer.swift; sourceTree = "<group>"; };
 		17CD2F842B06E91C003EE5FA /* PopupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupReducer.swift; sourceTree = "<group>"; };
 		17CD2F862B06F650003EE5FA /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
 		17CD2F8A2B0709EE003EE5FA /* HomeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReducer.swift; sourceTree = "<group>"; };
@@ -135,6 +141,10 @@
 		17CD2F8E2B070A52003EE5FA /* OrderReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderReducer.swift; sourceTree = "<group>"; };
 		17CD2F902B070A62003EE5FA /* ShopReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopReducer.swift; sourceTree = "<group>"; };
 		17CD2F922B070A6C003EE5FA /* OtherReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherReducer.swift; sourceTree = "<group>"; };
+		17DD651E2B0ED08500AD6189 /* CouponInfoReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInfoReducer.swift; sourceTree = "<group>"; };
+		17DD65202B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryDetailReducer.swift; sourceTree = "<group>"; };
+		17DD65242B0ED3A300AD6189 /* UsableCouponReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsableCouponReducer.swift; sourceTree = "<group>"; };
+		17DD65272B0ED40100AD6189 /* CouponHistoryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryReducer.swift; sourceTree = "<group>"; };
 		17EBC3B22B0C4CF4006EE83D /* NoticePopupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePopupReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -325,12 +335,11 @@
 			children = (
 				1749EA6A2B04A87300CACC01 /* Info */,
 				1749EA372B049E5400CACC01 /* AddCoupon */,
+				17DD65222B0ED37400AD6189 /* UsableCoupon */,
+				17DD65232B0ED38000AD6189 /* CouponHistory */,
 				1749EA4B2B049F1D00CACC01 /* CouponView.swift */,
 				1749EA4D2B049F2400CACC01 /* CouponCase.swift */,
 				1726DCB72B0B53C900BEAFAD /* CouponReducer.swift */,
-				179E464B2B0D7F9D00A5B98C /* UsableCouponView.swift */,
-				179E464D2B0D7FA500A5B98C /* CouponHistoryView.swift */,
-				179E464F2B0D868F00A5B98C /* CouponHistoryDetailView.swift */,
 			);
 			path = Coupon;
 			sourceTree = "<group>";
@@ -354,6 +363,7 @@
 				1749EA452B049EE400CACC01 /* AddCouponView.swift */,
 				1749EA472B049EED00CACC01 /* RadioButtonType.swift */,
 				1749EA492B049EFB00CACC01 /* AddCouponViewModel.swift */,
+				179E46532B0DF99E00A5B98C /* AddCouponReducer.swift */,
 			);
 			path = AddCoupon;
 			sourceTree = "<group>";
@@ -391,8 +401,37 @@
 				1749EA6B2B04A88800CACC01 /* CouponInfoView.swift */,
 				1779003A2B05A5240014D385 /* CouponInfoViewModel.swift */,
 				1779003C2B05A79F0014D385 /* CouponInfoCase.swift */,
+				17DD651E2B0ED08500AD6189 /* CouponInfoReducer.swift */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		17DD65222B0ED37400AD6189 /* UsableCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				179E464B2B0D7F9D00A5B98C /* UsableCouponView.swift */,
+				17DD65242B0ED3A300AD6189 /* UsableCouponReducer.swift */,
+			);
+			path = UsableCoupon;
+			sourceTree = "<group>";
+		};
+		17DD65232B0ED38000AD6189 /* CouponHistory */ = {
+			isa = PBXGroup;
+			children = (
+				17DD65262B0ED3DE00AD6189 /* Detail */,
+				179E464D2B0D7FA500A5B98C /* CouponHistoryView.swift */,
+				17DD65272B0ED40100AD6189 /* CouponHistoryReducer.swift */,
+			);
+			path = CouponHistory;
+			sourceTree = "<group>";
+		};
+		17DD65262B0ED3DE00AD6189 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				179E464F2B0D868F00A5B98C /* CouponHistoryDetailView.swift */,
+				17DD65202B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,21 +520,25 @@
 				1749EA542B049F6100CACC01 /* WhatsNewViewModel.swift in Sources */,
 				1749EA302B049E0500CACC01 /* NoticeView.swift in Sources */,
 				179E46502B0D868F00A5B98C /* CouponHistoryDetailView.swift in Sources */,
+				179E46542B0DF99E00A5B98C /* AddCouponReducer.swift in Sources */,
 				1749EA672B04A49200CACC01 /* NoticeDetailModel.swift in Sources */,
 				177900452B05B5C20014D385 /* OrderHeaderView.swift in Sources */,
 				1726DCB42B0B4D1600BEAFAD /* String+.swift in Sources */,
+				17DD65252B0ED3A300AD6189 /* UsableCouponReducer.swift in Sources */,
 				17CD2F8D2B070A42003EE5FA /* PayReducer.swift in Sources */,
 				1749EA192B049C9900CACC01 /* StartingPopupView.swift in Sources */,
 				1726DCB82B0B53C900BEAFAD /* CouponReducer.swift in Sources */,
 				1749EA3C2B049E7500CACC01 /* ScannerView.swift in Sources */,
 				1749EA582B049F9A00CACC01 /* TabBarView.swift in Sources */,
 				17CD2F932B070A6C003EE5FA /* OtherReducer.swift in Sources */,
+				17DD65212B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift in Sources */,
 				1749EA692B04A51D00CACC01 /* MultiSection.swift in Sources */,
 				1749EA5C2B049FC400CACC01 /* QuickMenu.swift in Sources */,
 				1749EA462B049EE400CACC01 /* AddCouponView.swift in Sources */,
 				17CD2F912B070A62003EE5FA /* ShopReducer.swift in Sources */,
 				1749EA522B049F5900CACC01 /* WhatsNewCell.swift in Sources */,
 				1749EA5A2B049FB700CACC01 /* SectionDetail.swift in Sources */,
+				17DD651F2B0ED08500AD6189 /* CouponInfoReducer.swift in Sources */,
 				1779003B2B05A5240014D385 /* CouponInfoViewModel.swift in Sources */,
 				1749EA1D2B049CDB00CACC01 /* MenuListCard.swift in Sources */,
 				179E464C2B0D7F9D00A5B98C /* UsableCouponView.swift in Sources */,
@@ -511,6 +554,7 @@
 				1749EA342B049E1A00CACC01 /* ReviewWritePopupView.swift in Sources */,
 				1726DCBA2B0B55DB00BEAFAD /* WhatsNewReducer.swift in Sources */,
 				1726DCAD2B0AFD5000BEAFAD /* PayView.swift in Sources */,
+				17DD65282B0ED40100AD6189 /* CouponHistoryReducer.swift in Sources */,
 				17EBC3B32B0C4CF4006EE83D /* NoticePopupReducer.swift in Sources */,
 				1749EA022B04997900CACC01 /* StarbucksApp.swift in Sources */,
 				1749EA2E2B049DFC00CACC01 /* NoticeModel.swift in Sources */,
