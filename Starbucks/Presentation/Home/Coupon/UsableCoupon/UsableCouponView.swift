@@ -5,9 +5,20 @@
 //  Created by DEV IOS on 2023/11/22.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct UsableCouponView: View {
+    let store: StoreOf<UsableCouponReducer>
+    @ObservedObject var viewStore: ViewStoreOf<UsableCouponReducer>
+    
+    init(store: StoreOf<UsableCouponReducer>){
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
+}
+//MARK: - View
+extension UsableCouponView {
     var body: some View {
         VStack {
             Spacer()
@@ -18,9 +29,9 @@ struct UsableCouponView: View {
         }
     }
 }
-
+//MARK: - Preview
 struct UsableCouponView_Previews: PreviewProvider {
     static var previews: some View {
-        UsableCouponView()
+        UsableCouponView(store: Store(initialState: .init(), reducer: { UsableCouponReducer() }))
     }
 }
