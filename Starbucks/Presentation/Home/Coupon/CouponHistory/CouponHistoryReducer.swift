@@ -11,11 +11,16 @@ import Foundation
 struct CouponHistoryReducer: Reducer {
     struct State: Equatable {}
     
-    enum Action: Equatable {}
+    enum Action: Equatable {
+        case detailButtonTapped
+    }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
-            switch action {}
+            switch action {
+            case .detailButtonTapped:
+                return .none
+            }
         }
     }
 }
