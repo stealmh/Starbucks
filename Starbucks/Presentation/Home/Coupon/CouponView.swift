@@ -50,6 +50,9 @@ extension CouponView {
             IfLetStore(self.store.scope(state: \.couponHistory, action: { .couponHistory($0) })) { store in
                 CouponHistoryView(store: store)
             }
+            .navigationDestination(store: self.store.scope(state: \.$destination, action: {  .destination($0)}), state: /CouponReducer.Destination.State.couponHistoryDetail, action: CouponReducer.Destination.Action.couponHistoryDetail, destination: { store in
+                CouponHistoryDetailView(store: store)
+            })
 
         }
         .animation(.linear, value: viewStore.couponCase)

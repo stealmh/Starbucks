@@ -13,11 +13,13 @@ struct CouponReducer: Reducer {
         enum State: Equatable {
             case addCoupon(AddCouponReducer.State = AddCouponReducer.State())
             case info(CouponInfoReducer.State = CouponInfoReducer.State())
+            case couponHistoryDetail(CouponHistoryDetailReducer.State = CouponHistoryDetailReducer.State())
         }
         
         enum Action: Equatable {
             case addCoupon(AddCouponReducer.Action)
             case info(CouponInfoReducer.Action)
+            case couponHistoryDetail(CouponHistoryDetailReducer.Action)
         }
         
         var body: some ReducerOf<Self> {
@@ -27,6 +29,10 @@ struct CouponReducer: Reducer {
             
             Scope(state: /State.info, action: /Action.info) {
                 CouponInfoReducer()
+            }
+            
+            Scope(state: /State.couponHistoryDetail, action: /Action.couponHistoryDetail) {
+                CouponHistoryDetailReducer()
             }
             
         }
@@ -57,6 +63,9 @@ struct CouponReducer: Reducer {
                 return .none
             case .menuButtonTapped(let couponCase):
                 state.couponCase = couponCase
+                return .none
+            case .couponHistory(.detailButtonTapped):
+                state.destination = .couponHistoryDetail()
                 return .none
             }
         }
