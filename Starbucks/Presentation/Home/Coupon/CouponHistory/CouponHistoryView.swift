@@ -2,9 +2,10 @@
 //  CouponHistoryView.swift
 //  Starbucks
 //
-//  Created by DEV IOS on 2023/11/22.
+//  Created by mino on 2023/11/22.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 enum CouponHistoryType {
@@ -27,6 +28,14 @@ enum CouponHistoryType {
 }
 
 struct CouponHistoryView: View {
+    let store: StoreOf<CouponHistoryReducer>
+    @ObservedObject var viewStore: ViewStoreOf<CouponHistoryReducer>
+    
+    init(store: StoreOf<CouponHistoryReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
@@ -52,7 +61,7 @@ struct CouponHistoryView: View {
 // MARK: - Preview
 struct CouponHistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CouponHistoryView()
+        CouponHistoryView(store: Store(initialState: .init(), reducer: { CouponHistoryReducer() }))
     }
 }
 // MARK: - Configure Layout
