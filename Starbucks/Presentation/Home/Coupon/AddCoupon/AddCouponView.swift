@@ -46,7 +46,7 @@ struct AddCouponView: View {
 struct CouponRegisterView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AddCouponView(store: Store(initialState: .init(), reducer: { AddCouponReducer() }))
+            AddCouponView(store: Store(initialState: .init(), reducer: { AddCouponReducer()._printChanges() }))
         }
     }
 }
@@ -122,7 +122,8 @@ extension AddCouponView {
             .padding([.leading, .trailing], 10)
             
             Button {
-                isPresented.toggle()
+//                isPresented.toggle()
+                viewStore.send(.scannerButtonTapped)
             } label: {
                 ZStack {
                     Rectangle()
@@ -133,9 +134,15 @@ extension AddCouponView {
                 }
                 .padding(10)
             }
-            .navigationDestination(isPresented: $isPresented) {
-                BarcodeScannerView(barcodeResult: viewStore.$recipeCouponRegisterTextField, isPresented: $isPresented)
-            }
+            .navigationDestination(store: self.store.scope(state: \.$destination, action: {  .destination($0)}), state: /AddCouponReducer.Destination.State.scanner, action: AddCouponReducer.Destination.Action.scanner, destination: { store in
+//                NoticeView(store: store)
+                BarcodeScannerView(store: store)
+            })
+            
+            
+//            .navigationDestination(isPresented: $isPresented) {
+//                BarcodeScannerView(barcodeResult: viewStore.$recipeCouponRegisterTextField, isPresented: $isPresented)
+//            }
             
            VStack(alignment: .leading, spacing: 15) {
                 Text("· 쿠폰으로 등록한 영수증 쿠폰은 등록해지가 불가능하며, 등록 이후 기존의 실물 쿠폰은 더 이상 사용하실 수 없습니다.")

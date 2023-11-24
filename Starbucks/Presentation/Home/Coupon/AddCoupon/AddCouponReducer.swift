@@ -9,13 +9,23 @@ import ComposableArchitecture
 import Foundation
 
 struct AddCouponReducer: Reducer {
-//    struct Destination: Reducer {
-//        struct State: Equatable {}
-//        enum Action: Equatable {}
-//        var body: some ReducerOf<Self> {}
-//    }
+    struct Destination: Reducer {
+        enum State: Equatable {
+            case scanner(ScannerReducer.State = ScannerReducer.State())
+        }
+        enum Action: Equatable {
+            case scanner(ScannerReducer.Action)
+        }
+        
+        var body: some ReducerOf<Self> {
+            Scope(state: /State.scanner, action: /Action.scanner) {
+                ScannerReducer()
+            }
+        }
+    }
     
     struct State: Equatable {
+        @PresentationState var destination: Destination.State?
         var selectRadioButton: RadioButtonType = .recipe
         
         @BindingState var recipeText1 = ""
@@ -44,6 +54,8 @@ struct AddCouponReducer: Reducer {
     enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
         case radioButtonTapped(RadioButtonType)
+        case destination(PresentationAction<Destination.Action>)
+        case scannerButtonTapped
     }
     
     var body: some ReducerOf<Self> {
@@ -55,7 +67,20 @@ struct AddCouponReducer: Reducer {
                 return .none
             case .binding:
                 return .none
+            case .scannerButtonTapped:
+                state.destination = .scanner()
+                return .none
+            case .destination(.presented(.scanner(.getBarcodeResult(let barcode)))):
+                state.recipeCouponRegisterTextField = barcode
+                return .run { send in
+                    await send(.destination(.dismiss))
+                }
+            case .destination:
+                return .none
             }
+        }
+        .ifLet(\.$destination, action: /Action.destination) {
+            Destination()
         }
     }
 }

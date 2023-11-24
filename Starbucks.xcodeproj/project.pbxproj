@@ -72,6 +72,7 @@
 		17DD65212B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65202B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift */; };
 		17DD65252B0ED3A300AD6189 /* UsableCouponReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65242B0ED3A300AD6189 /* UsableCouponReducer.swift */; };
 		17DD65282B0ED40100AD6189 /* CouponHistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65272B0ED40100AD6189 /* CouponHistoryReducer.swift */; };
+		17DD652A2B0F420C00AD6189 /* ScannerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65292B0F420C00AD6189 /* ScannerReducer.swift */; };
 		17EBC3B32B0C4CF4006EE83D /* NoticePopupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EBC3B22B0C4CF4006EE83D /* NoticePopupReducer.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,7 @@
 		17DD65202B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryDetailReducer.swift; sourceTree = "<group>"; };
 		17DD65242B0ED3A300AD6189 /* UsableCouponReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsableCouponReducer.swift; sourceTree = "<group>"; };
 		17DD65272B0ED40100AD6189 /* CouponHistoryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryReducer.swift; sourceTree = "<group>"; };
+		17DD65292B0F420C00AD6189 /* ScannerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerReducer.swift; sourceTree = "<group>"; };
 		17EBC3B22B0C4CF4006EE83D /* NoticePopupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePopupReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -372,6 +374,7 @@
 				1749EA3F2B049E8700CACC01 /* ScannerViewModel.swift */,
 				1749EA412B049E9400CACC01 /* BarcodeScannerView.swift */,
 				1749EA432B049E9E00CACC01 /* AddCouponModel.swift */,
+				17DD65292B0F420C00AD6189 /* ScannerReducer.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				1726DCB02B0B46DB00BEAFAD /* HomeEventView.swift in Sources */,
 				179E46522B0D9A9100A5B98C /* Color+.swift in Sources */,
 				1749EA422B049E9400CACC01 /* BarcodeScannerView.swift in Sources */,
+				17DD652A2B0F420C00AD6189 /* ScannerReducer.swift in Sources */,
 				1749EA3E2B049E7A00CACC01 /* Alert.swift in Sources */,
 				1749EA402B049E8700CACC01 /* ScannerViewModel.swift in Sources */,
 				1749EA362B049E2400CACC01 /* NoticePopupStyle.swift in Sources */,
@@ -698,6 +702,7 @@
 				DEVELOPMENT_TEAM = 69AX92X75M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "바코드를 스캔하기 위해 카메라 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -727,6 +732,7 @@
 				DEVELOPMENT_TEAM = 69AX92X75M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "바코드를 스캔하기 위해 카메라 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
