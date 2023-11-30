@@ -32,7 +32,7 @@ struct WhatsNewView: View {
                         if loading {
                             loadingIndicator()
                         } else {
-                            ForEach(viewModel.movieList, id: \.a) { movie in
+                            ForEach(viewModel.movieList, id: \.id) { movie in
                                 WhatsNewCell(title: "\(movie.id ?? 0)")
                                     .onAppear { viewModel.infiniteScroll(movieItem: movie) }
                             }
@@ -61,6 +61,7 @@ struct WhatsNewView: View {
                     _ = a.results.map { viewModel.movieList.append($0) }
                 }
             }
+            viewStore.send(.onAppear)
         }
     }
 }

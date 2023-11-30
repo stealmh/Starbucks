@@ -52,7 +52,6 @@ class WhatsNewViewModel: ObservableObject {
                         .map { movieList.append($0) }
             }
         }
-
     }
     
 }
@@ -61,13 +60,15 @@ enum NetworkingError: Error {
     case a
 }
 
-struct Movie: Codable {
+struct Movie: Identifiable ,Equatable, Codable {
+    var id = UUID()
+    
     let results: [MovieDetail]
-    let total_pages: Int
+//    let total_pages: Int
 }
 
-struct MovieDetail: Codable, Identifiable {
+struct MovieDetail: Equatable, Codable, Identifiable {
     let id: Int?
     let adult: Bool?
-    let a = UUID()
+//    let a = UUID()
 }
