@@ -21,7 +21,7 @@ extension NetworkClient: DependencyKey {
         getSinglePost: {
             do {
                 let cute = Cute<EndPoint>()
-                let response: PlaceholderDTO = try await cute.petit(.getSinglePost(3))
+                let response: PlaceholderDTO = try await cute.petit(.getSinglePost(3), petitLogVisible: false)
                 return .success(response)
             } catch {
                 return .failure(error as! NetworkError)
@@ -29,7 +29,7 @@ extension NetworkClient: DependencyKey {
         }, getPosts: {
             do {
                 let cute = Cute<EndPoint>()
-                let response: [PlaceholderDTO] = try await cute.petit(.getPosts)
+                let response: [PlaceholderDTO] = try await cute.petit(.getPosts, petitLogVisible: false)
                 return .success(response)
             } catch {
                 return .failure(error as! NetworkError)
@@ -37,8 +37,7 @@ extension NetworkClient: DependencyKey {
         }, getMovieList: { pageNumber in
             do {
                 let cute = Cute<EndPoint>()
-                let response: Movie = try await cute.petit(.movieList(pageNumber))
-                print(response)
+                let response: Movie = try await cute.petit(.movieList(pageNumber), petitLogVisible: false)
                 return .success(response)
             } catch {
                 return .failure(error as! NetworkError)
