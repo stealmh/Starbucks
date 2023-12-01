@@ -55,6 +55,7 @@
 		177900432B05B46E0014D385 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900422B05B46E0014D385 /* OrderView.swift */; };
 		177900452B05B5C20014D385 /* OrderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900442B05B5C20014D385 /* OrderHeaderView.swift */; };
 		177900472B05D7410014D385 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177900462B05D7410014D385 /* OrderModel.swift */; };
+		1785EA652B19709C00CE7B14 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1785EA642B19709C00CE7B14 /* Movie.swift */; };
 		179E464C2B0D7F9D00A5B98C /* UsableCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E464B2B0D7F9D00A5B98C /* UsableCouponView.swift */; };
 		179E464E2B0D7FA500A5B98C /* CouponHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E464D2B0D7FA500A5B98C /* CouponHistoryView.swift */; };
 		179E46502B0D868F00A5B98C /* CouponHistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E464F2B0D868F00A5B98C /* CouponHistoryDetailView.swift */; };
@@ -130,6 +131,7 @@
 		177900422B05B46E0014D385 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		177900442B05B5C20014D385 /* OrderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHeaderView.swift; sourceTree = "<group>"; };
 		177900462B05D7410014D385 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		1785EA642B19709C00CE7B14 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		179E464B2B0D7F9D00A5B98C /* UsableCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsableCouponView.swift; sourceTree = "<group>"; };
 		179E464D2B0D7FA500A5B98C /* CouponHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryView.swift; sourceTree = "<group>"; };
 		179E464F2B0D868F00A5B98C /* CouponHistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryDetailView.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				1749EA592B049FB700CACC01 /* SectionDetail.swift */,
 				1749EA682B04A51D00CACC01 /* MultiSection.swift */,
 				17CF97E12B14809F00BF5373 /* PlaceholderDTO.swift */,
+				1785EA642B19709C00CE7B14 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				1749EA652B04A3F500CACC01 /* NoticeCase.swift in Sources */,
 				1749EA442B049E9E00CACC01 /* AddCouponModel.swift in Sources */,
 				17CD2F872B06F650003EE5FA /* RootReducer.swift in Sources */,
+				1785EA652B19709C00CE7B14 /* Movie.swift in Sources */,
 				1749EA6C2B04A88800CACC01 /* CouponInfoView.swift in Sources */,
 				17CD2F8F2B070A52003EE5FA /* OrderReducer.swift in Sources */,
 				1726DCB62B0B4F3C00BEAFAD /* NoticeReducer.swift in Sources */,
