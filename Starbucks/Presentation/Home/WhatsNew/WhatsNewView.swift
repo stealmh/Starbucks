@@ -9,12 +9,7 @@ import ComposableArchitecture
 import SwiftUI
 
 struct WhatsNewView: View {
-    @State private var menuCase: MenuCase = .all
-    @State private var menuListButtonToggle: Bool = false
-    @State private var loading = false
-    @StateObject var viewModel = WhatsNewViewModel()
     private let title: String = "What's New"
-    private let testing: Bool = false
     
     let store: StoreOf<WhatsNewReducer>
     @ObservedObject var viewStore: ViewStoreOf<WhatsNewReducer>
@@ -23,20 +18,22 @@ struct WhatsNewView: View {
         self.store = store
         self.viewStore = ViewStore(self.store, observe: { $0 })
     }
-    
+}
+//MARK: - View
+extension WhatsNewView {
     var body: some View {
         ScrollView {
             ZStack(alignment: .topLeading) {
                 LazyVStack {
-                        menuListCard(menuCase)
-                        if loading {
+                    menuListCard(viewStore.menuCase)
+                    if viewStore.loading {
                             loadingIndicator()
                         } else {
-                            ForEach(viewModel.movieList, id: \.id) { movie in
+                            ForEach(viewStore.movieList) { movie in
                                 WhatsNewCell(title: "\(movie.id ?? 0)")
-                                    .onAppear { viewModel.infiniteScroll(movieItem: movie) }
+                                    .onAppear { viewStore.send(.scrollIsEnd(movie)) }
                             }
-                            if viewModel.movieList.isEmpty {
+                            if viewStore.movieList.isEmpty {
                                 Text("새로운 메시지가 없습니다")
                             }
                         }
@@ -46,23 +43,7 @@ struct WhatsNewView: View {
             }
         }
         .navigationSetting(title)
-        .onChange(of: menuCase, perform: { newValue in
-            viewModel.movieList = []
-            loading = true
-            Task {
-                try await Task.sleep(nanoseconds: 1 * 1_000_000_000) /// 네트워크 통신
-                loading = false
-            }
-        })
-        .onAppear {
-            if !testing {
-                Task {
-                    let a = try await viewModel.request(type: Movie.self)
-                    _ = a.results.map { viewModel.movieList.append($0) }
-                }
-            }
-            viewStore.send(.onAppear)
-        }
+        .onAppear { viewStore.send(.onAppear) }
     }
 }
 //MARK: - Preview
@@ -73,7 +54,7 @@ struct WhatsNewView_Previews: PreviewProvider {
         }
     }
 }
-//MARK: -
+//MARK: - Configure Layout
 extension WhatsNewView {
     
     func menuListCard(_ itemCase: SqaureBoxLayer) -> some View {
@@ -90,9 +71,7 @@ extension WhatsNewView {
             .background(.white)
             .padding([.leading, .trailing], 20)
             .padding(.top, 20)
-            .onTapGesture {
-                menuListButtonToggle.toggle()
-            }
+            .onTapGesture { viewStore.send(.menuButtonTapped) }
         }
     }
     
@@ -102,12 +81,9 @@ extension WhatsNewView {
                 Text(menu.title)
                     .fontWeight(.semibold)
                     .frame(width: 156, height: 43.3)
-                    .background(menuCase == menu ? .gray.opacity(0.3) : .white)
+                    .background(viewStore.menuCase == menu ? .gray.opacity(0.3) : .white)
                     .padding(.top, 10)
-                    .onTapGesture {
-                        menuCase = menu
-                        menuListButtonToggle.toggle()
-                    }
+                    .onTapGesture { viewStore.send(.menuDetailButtonTapped(menu)) }
             }
         }
         .frame(width: 156)
@@ -115,7 +91,7 @@ extension WhatsNewView {
         .cornerRadius(10)
         .padding(.leading, 20)
         .shadow(radius: 5)
-        .opacity(menuListButtonToggle ? 1 : 0)
+        .opacity(viewStore.menuListButtonToggle ? 1 : 0)
     }
     
     func loadingIndicator() -> some View {
@@ -126,7 +102,7 @@ extension WhatsNewView {
         }
     }
 }
-
+//MARK: - NavigationSetting
 fileprivate extension View {
     func navigationSetting(_ title: String) -> some View {
         self
