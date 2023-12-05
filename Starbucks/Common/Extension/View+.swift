@@ -20,6 +20,14 @@ extension View {
             self
         }
     }
+    /// popover를 할 때 애니메이션효과를 끔
+    func withoutAnimation(action: @escaping () -> Void) {
+        var transaction = Transaction()
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+            action()
+        }
+    }
 }
 
 struct RoundedCorner: Shape {

@@ -12,18 +12,18 @@ protocol SqaureBoxLayer {
 }
 
 extension WhatsNewView {
-    enum MenuCase: SqaureBoxLayer, CaseIterable {
-        case all
-        case eventAndNews
-        case notice
-        
-        var title: String {
-            switch self {
-            case .all:          return "전체"
-            case .eventAndNews: return "이벤트&뉴스"
-            case .notice:       return "공지사항"
-            }
+}
+
+enum MenuCase: SqaureBoxLayer, CaseIterable {
+    case all
+    case eventAndNews
+    case notice
+    
+    var title: String {
+        switch self {
+        case .all:          return "전체"
+        case .eventAndNews: return "이벤트&뉴스"
+        case .notice:       return "공지사항"
         }
     }
 }
-

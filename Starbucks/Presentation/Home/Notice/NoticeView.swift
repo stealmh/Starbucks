@@ -5,42 +5,53 @@
 //  Created by mino on 2023/10/25.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct NoticeView: View {
-    @StateObject private var viewModel: NoticeViewModel = NoticeViewModel()
     private let title: String = "알림"
+    let store: StoreOf<NoticeReducer>
+    @ObservedObject var viewStore: ViewStoreOf<NoticeReducer>
+    
+    init(store: StoreOf<NoticeReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
     
     var body: some View {
         ZStack {
             ScrollView {
                 ZStack(alignment: .topLeading) {
                     LazyVStack {
-                        menuHeaderView(viewModel.menuCase)
+                        menuHeaderView(viewStore.menuCase)
                         noticeListView
                     }
                     menuSelectView
                 }
                 loadingView
             }
-            .background(viewModel.reviewPopupPresented ? .gray.opacity(0.6) : .white)
-            
-            if viewModel.reviewPopupPresented {
-                ReviewWritePopupView(isPresented: $viewModel.reviewPopupPresented,
-                                     style: $viewModel.popupStyle,
-                                     viewModel: viewModel)
+            .fullScreenCover(
+              store: self.store.scope(state: \.$destination, action: { .destination($0) }),
+              state: /NoticeReducer.Destination.State.popover,
+              action: NoticeReducer.Destination.Action.popover
+            ) { store in
+                ReviewWritePopupView(store: store)
+                    .presentationBackground(.gray.opacity(0.6))
+            }
+            .transaction { transaction in
+                transaction.disablesAnimations = true
             }
         }
-        .animation(.easeInOut, value: viewModel.reviewPopupPresented)
-        .scrollDisabled(viewModel.reviewPopupPresented ? true : false)
-        .navigationSetting(viewModel: viewModel, title)
+        .onAppear { viewStore.send(.onAppear) }
+        .navigationSetting(title: title, viewStore: viewStore)
+        .animation(.easeIn, value: viewStore.destination)
     }
 }
 //MARK: - Preview
 struct NoticeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            NoticeView()
+            NoticeView(store: Store(initialState: .init(), reducer: { NoticeReducer()._printChanges() }))
         }
     }
 }
@@ -53,12 +64,10 @@ extension NoticeView {
                 Text(menu.title)
                     .fontWeight(.semibold)
                     .frame(width: 156, height: 43.3)
-                    .background(viewModel.menuCase == menu ? .gray.opacity(0.3) : .white)
+                    .background(viewStore.menuCase == menu ? .gray.opacity(0.3) : .white)
                     .padding(.top, 10)
                     .onTapGesture {
-                        viewModel.isLoading = true
-                        viewModel.menuCase = menu
-                        viewModel.menuListButtonToogle.toggle()
+                        viewStore.send(.menuListTapped(menu))
                     }
             }
         }
@@ -67,21 +76,21 @@ extension NoticeView {
         .cornerRadius(10)
         .padding(.leading, 20)
         .shadow(radius: 5)
-        .opacity(viewModel.menuListButtonToogle ? 1 : 0)
+        .opacity(viewStore.menuListButtonToggle ? 1 : 0)
     }
     /// 알림 리스트입니다.
     private var noticeListView: some View {
-        ForEach(viewModel.filterNotice) { data in
+        ForEach(viewStore.filterNotice) { data in
             noticeItem(data)
                 .padding([.leading, .trailing, .top], 10)
-                .onTapGesture { viewModel.itemTapGesture(data.id) }
+                .onTapGesture {
+                    viewStore.send(.itemTapGesture(data.id))
+//                    viewStore.itemTapGesture(data.id)
+                }
             if let detail = data.detail, detail.isOpen {
                 noticeDetailItem(detail)
             }
         }
-        .onChange(of: viewModel.menuCase) { viewModel.menuCaseDidChange($0) }
-        //.transition(.slide)
-        //.animation(.easeIn(duration: 0.2))
     }
     /// 간단한 로딩뷰로 정중앙에 위치합니다.
     private var loadingView: some View {
@@ -90,7 +99,7 @@ extension NoticeView {
                 .progressViewStyle(CircularProgressViewStyle())
                 .padding(.top, 10)
         }
-        .opacity(viewModel.isLoading ? 1 : 0)
+        .opacity(viewStore.isLoading ? 1 : 0)
     }
     /// 메뉴의 헤더입니다.
     private func menuHeaderView(_ itemCase: SqaureBoxLayer) -> some View {
@@ -108,7 +117,7 @@ extension NoticeView {
             .padding([.leading, .trailing], 20)
             .padding(.top, 20)
             .onTapGesture {
-                viewModel.menuListButtonToogle.toggle()
+                viewStore.send(.menuTapped)
             }
         }
     }
@@ -155,7 +164,7 @@ extension NoticeView {
 }
 //MARK: - Configure NavigationBar
 fileprivate extension View {
-    func navigationSetting(viewModel: NoticeViewModel, _ title: String) -> some View {
+    func navigationSetting(title: String, viewStore: ViewStoreOf<NoticeReducer>) -> some View {
         self
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.large)
@@ -163,8 +172,7 @@ fileprivate extension View {
             .navigationBarItems(leading: BackbuttonOnlyIcon())
             .toolbar {
                 Button {
-                    viewModel.popupStyle = .deleteMessage
-                    viewModel.reviewPopupPresented.toggle()
+                    viewStore.send(.deleteToolbarTapped)
                 } label: {
                     Image(systemName: "trash")
                 }

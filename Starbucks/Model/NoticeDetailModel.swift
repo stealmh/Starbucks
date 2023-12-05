@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NoticeDetailModel: Identifiable {
+struct NoticeDetailModel: Equatable, Identifiable {
     let id = UUID()
     let noticeType: String
     let noticeTitle: String

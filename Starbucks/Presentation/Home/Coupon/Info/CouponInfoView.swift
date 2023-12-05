@@ -5,18 +5,26 @@
 //  Created by DEV IOS on 2023/11/15.
 //
 
+import ComposableArchitecture
 import SwiftUI
-import Combine
 
 struct CouponInfoView: View {
     private let title = "쿠폰 이용안내"
-    @StateObject private var viewModel = CouponInfoViewModel()
+    let store: StoreOf<CouponInfoReducer>
+    @ObservedObject var viewStore: ViewStoreOf<CouponInfoReducer>
     
+    init(store: StoreOf<CouponInfoReducer>) {
+        self.store = store
+        self.viewStore = ViewStore(self.store, observe: { $0 })
+    }
+}
+//MARK: - View
+extension CouponInfoView {
     var body: some View {
         VStack {
             Text("(실제로는 자기네들 온보딩 들어감)")
             ZStack {
-                TabView(selection: $viewModel.currentPage) {
+                TabView(selection: viewStore.$currentPage) {
                     ForEach(InfoPaging.allCases, id: \.self) { trip in
                         Rectangle()
                             .foregroundColor(trip.color)
@@ -31,19 +39,22 @@ struct CouponInfoView: View {
                     Spacer()
                     preNextButton(type: .next, systemName: "chevron.forward")
                 }
-                .opacity(viewModel.buttonHidden ? 0 : 1)
+                .opacity(viewStore.buttonHidden ? 0 : 1)
                 .padding([.leading, .trailing], 20)
             }
         }
         .navigationSetting(title)
-        .onTapGesture { viewModel.viewDidTapped() }
+        .onTapGesture { viewStore.send(.viewDidTapped) }
+        .onAppear { viewStore.send(.onAppear) }
+        .onDisappear { viewStore.send(.onDisappear) }
     }
 }
+
 //MARK: - Preview
 struct CouponInfoView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            CouponInfoView()
+            CouponInfoView(store: Store(initialState: .init(), reducer: { CouponInfoReducer()._printChanges() }))
         }
     }
 }
@@ -62,7 +73,8 @@ fileprivate extension View {
 extension CouponInfoView {
     private func preNextButton(type: PreNextButtonType, systemName: String) -> some View {
         Button {
-            viewModel.preNextButtonTapped(type: type)
+//            viewModel.preNextButtonTapped(type: type)
+            viewStore.send(.preNextButtonTapped(type))
         } label: {
             ZStack {
                 Circle()
