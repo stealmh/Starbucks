@@ -14,6 +14,7 @@
 		1726DCB62B0B4F3C00BEAFAD /* NoticeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726DCB52B0B4F3C00BEAFAD /* NoticeReducer.swift */; };
 		1726DCB82B0B53C900BEAFAD /* CouponReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726DCB72B0B53C900BEAFAD /* CouponReducer.swift */; };
 		1726DCBA2B0B55DB00BEAFAD /* WhatsNewReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726DCB92B0B55DB00BEAFAD /* WhatsNewReducer.swift */; };
+		173A745E2B1F0441009F29F5 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173A745D2B1F0441009F29F5 /* Int+.swift */; };
 		1749EA022B04997900CACC01 /* StarbucksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1749EA012B04997900CACC01 /* StarbucksApp.swift */; };
 		1749EA062B04997B00CACC01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1749EA052B04997B00CACC01 /* Assets.xcassets */; };
 		1749EA092B04997B00CACC01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1749EA082B04997B00CACC01 /* Preview Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		1726DCB52B0B4F3C00BEAFAD /* NoticeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeReducer.swift; sourceTree = "<group>"; };
 		1726DCB72B0B53C900BEAFAD /* CouponReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponReducer.swift; sourceTree = "<group>"; };
 		1726DCB92B0B55DB00BEAFAD /* WhatsNewReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewReducer.swift; sourceTree = "<group>"; };
+		173A745D2B1F0441009F29F5 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		1749E9FE2B04997900CACC01 /* Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1749EA012B04997900CACC01 /* StarbucksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksApp.swift; sourceTree = "<group>"; };
 		1749EA052B04997B00CACC01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				1749EA202B049D5D00CACC01 /* View+.swift */,
 				1726DCB32B0B4D1600BEAFAD /* String+.swift */,
 				179E46512B0D9A9100A5B98C /* Color+.swift */,
+				173A745D2B1F0441009F29F5 /* Int+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				1749EA2E2B049DFC00CACC01 /* NoticeModel.swift in Sources */,
 				177900412B05B3730014D385 /* ShopView.swift in Sources */,
 				1749EA212B049D5D00CACC01 /* View+.swift in Sources */,
+				173A745E2B1F0441009F29F5 /* Int+.swift in Sources */,
 				1749EA3A2B049E6B00CACC01 /* ScannerVC.swift in Sources */,
 				1749EA1B2B049CC500CACC01 /* BackbuttonOnlyIcon.swift in Sources */,
 				177900472B05D7410014D385 /* OrderModel.swift in Sources */,
