@@ -64,6 +64,8 @@ struct RootReducer: Reducer {
                 return .none
             case .home:
                 return .none
+            case .pay:
+                return .none
             }
         }
         .ifLet(\.welcom, action: /Action.welcome) {
