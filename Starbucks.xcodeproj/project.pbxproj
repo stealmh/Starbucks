@@ -77,6 +77,10 @@
 		17DD65252B0ED3A300AD6189 /* UsableCouponReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65242B0ED3A300AD6189 /* UsableCouponReducer.swift */; };
 		17DD65282B0ED40100AD6189 /* CouponHistoryReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65272B0ED40100AD6189 /* CouponHistoryReducer.swift */; };
 		17DD652A2B0F420C00AD6189 /* ScannerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DD65292B0F420C00AD6189 /* ScannerReducer.swift */; };
+		17E4C0A32B2196BF000D1C73 /* CardSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E4C0A22B2196BF000D1C73 /* CardSettingView.swift */; };
+		17E4C0A62B2196D4000D1C73 /* CardSettingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E4C0A52B2196D4000D1C73 /* CardSettingReducer.swift */; };
+		17E4C0A82B21A309000D1C73 /* CardChangePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E4C0A72B21A309000D1C73 /* CardChangePopUpView.swift */; };
+		17E4C0AA2B21AFCB000D1C73 /* CardChangeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E4C0A92B21AFCB000D1C73 /* CardChangeReducer.swift */; };
 		17EBC3B32B0C4CF4006EE83D /* NoticePopupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EBC3B22B0C4CF4006EE83D /* NoticePopupReducer.swift */; };
 		17FFDE082B1874D300A140D9 /* CuteNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 17FFDE072B1874D300A140D9 /* CuteNetwork */; };
 /* End PBXBuildFile section */
@@ -152,6 +156,10 @@
 		17DD65242B0ED3A300AD6189 /* UsableCouponReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsableCouponReducer.swift; sourceTree = "<group>"; };
 		17DD65272B0ED40100AD6189 /* CouponHistoryReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponHistoryReducer.swift; sourceTree = "<group>"; };
 		17DD65292B0F420C00AD6189 /* ScannerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerReducer.swift; sourceTree = "<group>"; };
+		17E4C0A22B2196BF000D1C73 /* CardSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingView.swift; sourceTree = "<group>"; };
+		17E4C0A52B2196D4000D1C73 /* CardSettingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingReducer.swift; sourceTree = "<group>"; };
+		17E4C0A72B21A309000D1C73 /* CardChangePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChangePopUpView.swift; sourceTree = "<group>"; };
+		17E4C0A92B21AFCB000D1C73 /* CardChangeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChangeReducer.swift; sourceTree = "<group>"; };
 		17EBC3B22B0C4CF4006EE83D /* NoticePopupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePopupReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,6 +278,7 @@
 		1749EA142B049C4900CACC01 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				17E4C0A42B2196C4000D1C73 /* CardSetting */,
 				17CD2F8C2B070A42003EE5FA /* PayReducer.swift */,
 				1726DCAC2B0AFD5000BEAFAD /* PayView.swift */,
 			);
@@ -453,6 +462,17 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		17E4C0A42B2196C4000D1C73 /* CardSetting */ = {
+			isa = PBXGroup;
+			children = (
+				17E4C0A22B2196BF000D1C73 /* CardSettingView.swift */,
+				17E4C0A52B2196D4000D1C73 /* CardSettingReducer.swift */,
+				17E4C0A72B21A309000D1C73 /* CardChangePopUpView.swift */,
+				17E4C0A92B21AFCB000D1C73 /* CardChangeReducer.swift */,
+			);
+			path = CardSetting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -538,9 +558,12 @@
 				17DD652A2B0F420C00AD6189 /* ScannerReducer.swift in Sources */,
 				1749EA3E2B049E7A00CACC01 /* Alert.swift in Sources */,
 				1749EA402B049E8700CACC01 /* ScannerViewModel.swift in Sources */,
+				17E4C0A82B21A309000D1C73 /* CardChangePopUpView.swift in Sources */,
+				17E4C0A62B2196D4000D1C73 /* CardSettingReducer.swift in Sources */,
 				1749EA362B049E2400CACC01 /* NoticePopupStyle.swift in Sources */,
 				1749EA482B049EED00CACC01 /* RadioButtonType.swift in Sources */,
 				17CF97E22B14809F00BF5373 /* PlaceholderDTO.swift in Sources */,
+				17E4C0AA2B21AFCB000D1C73 /* CardChangeReducer.swift in Sources */,
 				1749EA302B049E0500CACC01 /* NoticeView.swift in Sources */,
 				179E46502B0D868F00A5B98C /* CouponHistoryDetailView.swift in Sources */,
 				179E46542B0DF99E00A5B98C /* AddCouponReducer.swift in Sources */,
@@ -564,6 +587,7 @@
 				17DD651F2B0ED08500AD6189 /* CouponInfoReducer.swift in Sources */,
 				1749EA1D2B049CDB00CACC01 /* MenuListCard.swift in Sources */,
 				179E464C2B0D7F9D00A5B98C /* UsableCouponView.swift in Sources */,
+				17E4C0A32B2196BF000D1C73 /* CardSettingView.swift in Sources */,
 				1749EA612B04A3B500CACC01 /* HomeNotice.swift in Sources */,
 				179E464E2B0D7FA500A5B98C /* CouponHistoryView.swift in Sources */,
 				1779003D2B05A79F0014D385 /* CouponInfoCase.swift in Sources */,
