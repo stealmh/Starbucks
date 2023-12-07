@@ -21,25 +21,42 @@ struct PayView: View {
 //MARK: - View
 extension PayView {
     var body: some View {
-        GeometryReader { geo in
-            let width = geo.size.width
-            ScrollView {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(alignment: .center, spacing: 0) {
-                        ForEach(0..<2) { _ in
-                            card
-                                .frame(width: width * 0.95)
+        NavigationStack {
+            GeometryReader { geo in
+                let width = geo.size.width
+                ScrollView {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(alignment: .center, spacing: 0) {
+                            ForEach(0..<2) { _ in
+                                card
+                                    .frame(width: width * 0.95)
+                            }
                         }
                     }
+                    
+                    HStack {
+                        Spacer()
+                        Text("Coupon")
+                        Spacer()
+                        Text("|")
+                        Spacer()
+                        Text("e-Gift Item")
+                        Spacer()
+                    }
                 }
-                
-                HStack {
-                    Text("Coupon")
-                    Text("|")
-                    Text("e-Gift Item")
+                .navigationTitle("Pay")
+            }
+            .toolbar {
+                Button {
+                    viewStore.send(.cardSettingToolbarTapped)
+                    //
+                } label: {
+                    Image(systemName: "list.bullet")
                 }
             }
-            .navigationTitle("Pay")
+            .navigationDestination(store: self.store.scope(state: \.$destination, action: { .destination($0) }), state: /PayReducer.Destination.State.popover, action: PayReducer.Destination.Action.popover) { store in
+                CardSettingView(store: store)
+            }
         }
         .onAppear {
             let bright = UIScreen.main.brightness
@@ -55,7 +72,7 @@ extension PayView {
 struct PayView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-                PayView(store: Store(initialState: .init(), reducer: { PayReducer() }))
+            PayView(store: Store(initialState: .init(), reducer: { PayReducer()._printChanges() }))
         }
     }
 }
@@ -129,6 +146,7 @@ extension PayView {
                     }
 
                 }
+                .foregroundColor(.black.opacity(0.7))
                 .padding(.top, 10)
             }
             .padding(10)

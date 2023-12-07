@@ -9,12 +9,32 @@ import ComposableArchitecture
 import Foundation
 
 struct PayReducer: Reducer {
+    struct Destination: Reducer {
+        enum State: Equatable {
+            case popover(CardSettingReducer.State)
+        }
+        
+        enum Action: Equatable {
+            case popover(CardSettingReducer.Action)
+        }
+        
+        var body: some ReducerOf<Destination> {
+            Scope(state: /State.popover, action: /Action.popover) {
+                CardSettingReducer()
+            }
+        }
+    }
+    
+    
     struct State: Equatable {
+        @PresentationState var destination: Destination.State?
         /// 유저의 화면밝기
         var brightness: CGFloat?
         var barcodeRemaining = 120
     }
     enum Action: Equatable {
+        case destination(PresentationAction<Destination.Action>)
+        case cardSettingToolbarTapped
         case onAppear(CGFloat)
         case onDisappear
         case timerTicks
@@ -44,7 +64,15 @@ struct PayReducer: Reducer {
                     state.barcodeRemaining = 119
                 }
                 return .none
+            case .cardSettingToolbarTapped:
+                state.destination = .popover(CardSettingReducer.State())
+                return .none
+            case .destination:
+                return .none
             }
+        }
+        .ifLet(\.$destination, action: /Action.destination) {
+            Destination()
         }
     }
 }
