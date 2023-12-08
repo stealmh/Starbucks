@@ -2,17 +2,22 @@
 //  CardChangeReducer.swift
 //  Starbucks
 //
-//  Created by DEV IOS on 2023/12/07.
+//  Created by mino on 2023/12/07.
 //
 
 import ComposableArchitecture
 import Foundation
 
 struct CardChangeReducer: Reducer {
-    struct State: Equatable {}
+    struct State: Equatable {
+        var selectCard: Card
+        var title: String
+    }
     enum Action: Equatable {
         case popup
         case alert
+        case cancelButtonTapped
+        case okButtonTapped(Card)
     }
     
     var body: some ReducerOf<Self> {
@@ -21,6 +26,10 @@ struct CardChangeReducer: Reducer {
             case .popup:
                 return .none
             case .alert:
+                return .none
+            case .cancelButtonTapped:
+                return .none
+            case .okButtonTapped:
                 return .none
             }
         }
