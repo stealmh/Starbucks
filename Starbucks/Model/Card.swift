@@ -21,7 +21,7 @@ extension Card {
     static let mock: IdentifiedArrayOf<Card> = [Card(cardName: "스타벅스 e카드(276347)",
                                                      cardNumber:"1232-3256-2322-4441",
                                                      cardImage: "cookie",
-                                                     money: 300,
+                                                     money: 30231230,
                                                      isHighlight: true),
                                                 Card(cardName: "스타벅스 그린 워드마크 카드(041926)",
                                                      cardNumber: "5611-2512-3321-6312",
