@@ -9,28 +9,13 @@ import ComposableArchitecture
 import Foundation
 
 struct PayReducer: Reducer {
-    struct Destination: Reducer {
-        enum State: Equatable {
-            case popover(CardSettingReducer.State)
-        }
-        
-        enum Action: Equatable {
-            case popover(CardSettingReducer.Action)
-        }
-        
-        var body: some ReducerOf<Destination> {
-            Scope(state: /State.popover, action: /Action.popover) {
-                CardSettingReducer()
-            }
-        }
-    }
-    
-    
     struct State: Equatable {
         @PresentationState var destination: Destination.State?
         /// 유저의 화면밝기
+        var cardList: IdentifiedArrayOf<Card> = []
         var brightness: CGFloat?
         var barcodeRemaining = 120
+        var viewStart: Bool = false
     }
     enum Action: Equatable {
         case destination(PresentationAction<Destination.Action>)
@@ -47,6 +32,10 @@ struct PayReducer: Reducer {
         Reduce { state, action in
             switch action {
             case .onAppear(let brightValue):
+                if !state.viewStart {
+                    state.cardList = Card.mock
+                    state.viewStart = true
+                }
                 state.brightness = brightValue
                 return .run { send in
                     for await _ in self.clock.timer(interval: .seconds(1)) {
@@ -65,7 +54,10 @@ struct PayReducer: Reducer {
                 }
                 return .none
             case .cardSettingToolbarTapped:
-                state.destination = .popover(CardSettingReducer.State())
+                state.destination = .popover(CardSettingReducer.State(cardList: state.cardList))
+                return .none
+            case .destination(.presented(.popover(.cardSortComplted(let cardList)))):
+                state.cardList = cardList
                 return .none
             case .destination:
                 return .none
@@ -76,3 +68,22 @@ struct PayReducer: Reducer {
         }
     }
 }
+//MARK: - Navigation
+extension PayReducer {
+    struct Destination: Reducer {
+        enum State: Equatable {
+            case popover(CardSettingReducer.State)
+        }
+        
+        enum Action: Equatable {
+            case popover(CardSettingReducer.Action)
+        }
+        
+        var body: some ReducerOf<Destination> {
+            Scope(state: /State.popover, action: /Action.popover) {
+                CardSettingReducer()
+            }
+        }
+    }
+}
+
