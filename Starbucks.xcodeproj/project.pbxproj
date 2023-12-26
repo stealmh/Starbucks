@@ -62,6 +62,10 @@
 		179E46522B0D9A9100A5B98C /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E46512B0D9A9100A5B98C /* Color+.swift */; };
 		179E46542B0DF99E00A5B98C /* AddCouponReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E46532B0DF99E00A5B98C /* AddCouponReducer.swift */; };
 		17AB9CDF2B22B7C200F9BDEA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AB9CDE2B22B7C200F9BDEA /* Card.swift */; };
+		17AB9CE42B22FBC800F9BDEA /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AB9CE32B22FBC800F9BDEA /* AddCardView.swift */; };
+		17AB9CE62B22FBD000F9BDEA /* AddCardReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AB9CE52B22FBD000F9BDEA /* AddCardReducer.swift */; };
+		17AB9CE82B23011B00F9BDEA /* AddStarbucksCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AB9CE72B23011B00F9BDEA /* AddStarbucksCardView.swift */; };
+		17AB9CEA2B23016200F9BDEA /* AddCardExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AB9CE92B23016200F9BDEA /* AddCardExchangeView.swift */; };
 		17B705A52B1061CA00AEA110 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B705A42B1061CA00AEA110 /* Network.swift */; };
 		17CD2F832B06E780003EE5FA /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 17CD2F822B06E780003EE5FA /* ComposableArchitecture */; };
 		17CD2F852B06E91C003EE5FA /* PopupReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD2F842B06E91C003EE5FA /* PopupReducer.swift */; };
@@ -143,6 +147,10 @@
 		179E46512B0D9A9100A5B98C /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		179E46532B0DF99E00A5B98C /* AddCouponReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCouponReducer.swift; sourceTree = "<group>"; };
 		17AB9CDE2B22B7C200F9BDEA /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		17AB9CE32B22FBC800F9BDEA /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
+		17AB9CE52B22FBD000F9BDEA /* AddCardReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardReducer.swift; sourceTree = "<group>"; };
+		17AB9CE72B23011B00F9BDEA /* AddStarbucksCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStarbucksCardView.swift; sourceTree = "<group>"; };
+		17AB9CE92B23016200F9BDEA /* AddCardExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardExchangeView.swift; sourceTree = "<group>"; };
 		17B705A42B1061CA00AEA110 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		17CD2F842B06E91C003EE5FA /* PopupReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupReducer.swift; sourceTree = "<group>"; };
 		17CD2F862B06F650003EE5FA /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
@@ -280,6 +288,7 @@
 		1749EA142B049C4900CACC01 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				17AB9CE22B22FBB800F9BDEA /* AddCard */,
 				17E4C0A42B2196C4000D1C73 /* CardSetting */,
 				17CD2F8C2B070A42003EE5FA /* PayReducer.swift */,
 				1726DCAC2B0AFD5000BEAFAD /* PayView.swift */,
@@ -426,6 +435,17 @@
 				17DD651E2B0ED08500AD6189 /* CouponInfoReducer.swift */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		17AB9CE22B22FBB800F9BDEA /* AddCard */ = {
+			isa = PBXGroup;
+			children = (
+				17AB9CE32B22FBC800F9BDEA /* AddCardView.swift */,
+				17AB9CE52B22FBD000F9BDEA /* AddCardReducer.swift */,
+				17AB9CE72B23011B00F9BDEA /* AddStarbucksCardView.swift */,
+				17AB9CE92B23016200F9BDEA /* AddCardExchangeView.swift */,
+			);
+			path = AddCard;
 			sourceTree = "<group>";
 		};
 		17B705A32B1061B700AEA110 /* Network */ = {
@@ -575,11 +595,13 @@
 				1726DCB42B0B4D1600BEAFAD /* String+.swift in Sources */,
 				17DD65252B0ED3A300AD6189 /* UsableCouponReducer.swift in Sources */,
 				17CD2F8D2B070A42003EE5FA /* PayReducer.swift in Sources */,
+				17AB9CE82B23011B00F9BDEA /* AddStarbucksCardView.swift in Sources */,
 				1749EA192B049C9900CACC01 /* StartingPopupView.swift in Sources */,
 				1726DCB82B0B53C900BEAFAD /* CouponReducer.swift in Sources */,
 				1749EA3C2B049E7500CACC01 /* ScannerView.swift in Sources */,
 				1749EA582B049F9A00CACC01 /* TabBarView.swift in Sources */,
 				17CD2F932B070A6C003EE5FA /* OtherReducer.swift in Sources */,
+				17AB9CE42B22FBC800F9BDEA /* AddCardView.swift in Sources */,
 				17DD65212B0ED0F700AD6189 /* CouponHistoryDetailReducer.swift in Sources */,
 				1749EA692B04A51D00CACC01 /* MultiSection.swift in Sources */,
 				1749EA5C2B049FC400CACC01 /* QuickMenu.swift in Sources */,
@@ -608,6 +630,7 @@
 				1749EA022B04997900CACC01 /* StarbucksApp.swift in Sources */,
 				17CF97DA2B1476EB00BF5373 /* EndPoint.swift in Sources */,
 				1749EA2E2B049DFC00CACC01 /* NoticeModel.swift in Sources */,
+				17AB9CE62B22FBD000F9BDEA /* AddCardReducer.swift in Sources */,
 				177900412B05B3730014D385 /* ShopView.swift in Sources */,
 				1749EA212B049D5D00CACC01 /* View+.swift in Sources */,
 				173A745E2B1F0441009F29F5 /* Int+.swift in Sources */,
@@ -623,6 +646,7 @@
 				1749EA442B049E9E00CACC01 /* AddCouponModel.swift in Sources */,
 				17CD2F872B06F650003EE5FA /* RootReducer.swift in Sources */,
 				1785EA652B19709C00CE7B14 /* Movie.swift in Sources */,
+				17AB9CEA2B23016200F9BDEA /* AddCardExchangeView.swift in Sources */,
 				1749EA6C2B04A88800CACC01 /* CouponInfoView.swift in Sources */,
 				17CD2F8F2B070A52003EE5FA /* OrderReducer.swift in Sources */,
 				1726DCB62B0B4F3C00BEAFAD /* NoticeReducer.swift in Sources */,

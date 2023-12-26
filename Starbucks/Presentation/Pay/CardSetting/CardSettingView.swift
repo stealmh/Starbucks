@@ -33,7 +33,7 @@ extension CardSettingView {
             .navigationTitle("카드 (\(viewStore.cardList.count))")
             .toolbar {
                 Button {
-                    ///Todo: 카드추가하는 뷰 구성
+                    viewStore.send(.addToolbarButtonTapped)
                 } label: {
                     Image(systemName: "plus.circle")
                 }
@@ -45,6 +45,9 @@ extension CardSettingView {
             }
             .transaction { transaction in
                 transaction.disablesAnimations = true
+            }
+            .navigationDestination(store: self.store.scope(state: \.$destination, action: { .destination($0) }), state: /CardSettingReducer.Destination.State.addCard, action: CardSettingReducer.Destination.Action.addCard) { store in
+                AddCardView(store: store)
             }
         }
     }

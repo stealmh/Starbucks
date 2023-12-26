@@ -18,6 +18,7 @@ struct CardSettingReducer: Reducer {
     
     enum Action: Equatable {
         case destination(PresentationAction<Destination.Action>)
+        case addToolbarButtonTapped
         case popup
         case alert(Card)
         case cardSortComplted(IdentifiedArrayOf<Card>)
@@ -31,6 +32,9 @@ struct CardSettingReducer: Reducer {
             case .alert(let item):
                 state.destination = .alert(CardChangeReducer.State(selectCard: item,
                                                                    title: cardTitleParsing(item)))
+                return .none
+            case .addToolbarButtonTapped:
+                state.destination = .addCard(AddCardReducer.State())
                 return .none
             case .destination(.presented(.alert(.okButtonTapped(let item)))):
                 let newCardList = mainCardChange(state.cardList, item)
@@ -59,15 +63,20 @@ extension CardSettingReducer {
     struct Destination: Reducer {
         enum State: Equatable {
             case alert(CardChangeReducer.State)
+            case addCard(AddCardReducer.State)
         }
         
         enum Action: Equatable {
             case alert(CardChangeReducer.Action)
+            case addCard(AddCardReducer.Action)
         }
         
         var body: some ReducerOf<Destination> {
             Scope(state: /State.alert , action: /Action.alert) {
                 CardChangeReducer()
+            }
+            Scope(state: /State.addCard , action: /Action.addCard) {
+                AddCardReducer()
             }
         }
     }
