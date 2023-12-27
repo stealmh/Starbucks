@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170AD6182B3BE146009EE30E /* CardRegisterGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AD6172B3BE146009EE30E /* CardRegisterGuideView.swift */; };
 		170AD61A2B3BEE18009EE30E /* MyDTPassAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AD6192B3BEE18009EE30E /* MyDTPassAlertView.swift */; };
 		1726DCAD2B0AFD5000BEAFAD /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726DCAC2B0AFD5000BEAFAD /* PayView.swift */; };
 		1726DCB02B0B46DB00BEAFAD /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726DCAF2B0B46DB00BEAFAD /* HomeEventView.swift */; };
@@ -92,6 +93,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		170AD6172B3BE146009EE30E /* CardRegisterGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRegisterGuideView.swift; sourceTree = "<group>"; };
 		170AD6192B3BEE18009EE30E /* MyDTPassAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDTPassAlertView.swift; sourceTree = "<group>"; };
 		1726DCAC2B0AFD5000BEAFAD /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		1726DCAF2B0B46DB00BEAFAD /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				17AB9CE52B22FBD000F9BDEA /* AddCardReducer.swift */,
 				17AB9CE72B23011B00F9BDEA /* AddStarbucksCardView.swift */,
 				17AB9CE92B23016200F9BDEA /* AddCardExchangeView.swift */,
+				170AD6172B3BE146009EE30E /* CardRegisterGuideView.swift */,
 				170AD6192B3BEE18009EE30E /* MyDTPassAlertView.swift */,
 			);
 			path = AddCard;
@@ -624,6 +627,7 @@
 				17CD2F852B06E91C003EE5FA /* PopupReducer.swift in Sources */,
 				1749EA4E2B049F2400CACC01 /* CouponCase.swift in Sources */,
 				1749EA562B049F6700CACC01 /* WhatsNewCase.swift in Sources */,
+				170AD6182B3BE146009EE30E /* CardRegisterGuideView.swift in Sources */,
 				1749EA502B049F5100CACC01 /* WhatsNewView.swift in Sources */,
 				177900432B05B46E0014D385 /* OrderView.swift in Sources */,
 				1749EA342B049E1A00CACC01 /* ReviewWritePopupView.swift in Sources */,
