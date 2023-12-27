@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170AD61A2B3BEE18009EE30E /* MyDTPassAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AD6192B3BEE18009EE30E /* MyDTPassAlertView.swift */; };
 		1726DCAD2B0AFD5000BEAFAD /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726DCAC2B0AFD5000BEAFAD /* PayView.swift */; };
 		1726DCB02B0B46DB00BEAFAD /* HomeEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726DCAF2B0B46DB00BEAFAD /* HomeEventView.swift */; };
 		1726DCB22B0B46EA00BEAFAD /* HomeEventReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726DCB12B0B46EA00BEAFAD /* HomeEventReducer.swift */; };
@@ -91,6 +92,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		170AD6192B3BEE18009EE30E /* MyDTPassAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDTPassAlertView.swift; sourceTree = "<group>"; };
 		1726DCAC2B0AFD5000BEAFAD /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		1726DCAF2B0B46DB00BEAFAD /* HomeEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventView.swift; sourceTree = "<group>"; };
 		1726DCB12B0B46EA00BEAFAD /* HomeEventReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventReducer.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				17AB9CE52B22FBD000F9BDEA /* AddCardReducer.swift */,
 				17AB9CE72B23011B00F9BDEA /* AddStarbucksCardView.swift */,
 				17AB9CE92B23016200F9BDEA /* AddCardExchangeView.swift */,
+				170AD6192B3BEE18009EE30E /* MyDTPassAlertView.swift */,
 			);
 			path = AddCard;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				1749EA1D2B049CDB00CACC01 /* MenuListCard.swift in Sources */,
 				179E464C2B0D7F9D00A5B98C /* UsableCouponView.swift in Sources */,
 				17E4C0A32B2196BF000D1C73 /* CardSettingView.swift in Sources */,
+				170AD61A2B3BEE18009EE30E /* MyDTPassAlertView.swift in Sources */,
 				1749EA612B04A3B500CACC01 /* HomeNotice.swift in Sources */,
 				17AB9CDF2B22B7C200F9BDEA /* Card.swift in Sources */,
 				179E464E2B0D7FA500A5B98C /* CouponHistoryView.swift in Sources */,
