@@ -21,25 +21,41 @@ struct PayView: View {
 //MARK: - View
 extension PayView {
     var body: some View {
-        GeometryReader { geo in
-            let width = geo.size.width
-            ScrollView {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(alignment: .center, spacing: 0) {
-                        ForEach(0..<2) { _ in
-                            card
-                                .frame(width: width * 0.95)
+        NavigationStack {
+            GeometryReader { geo in
+                let width = geo.size.width
+                ScrollView {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(alignment: .center, spacing: 0) {
+                                ForEach(viewStore.cardList, id: \.id) { item in
+                                    card(item)
+                                        .frame(width: width * 0.95)
+                                        .id(item)
+                                }
+                            }
                         }
+                    HStack {
+                        Spacer()
+                        Text("Coupon")
+                        Spacer()
+                        Text("|")
+                        Spacer()
+                        Text("e-Gift Item")
+                        Spacer()
                     }
                 }
-                
-                HStack {
-                    Text("Coupon")
-                    Text("|")
-                    Text("e-Gift Item")
+                .navigationTitle("Pay")
+            }
+            .toolbar {
+                Button {
+                    viewStore.send(.cardSettingToolbarTapped)
+                } label: {
+                    Image(systemName: "list.bullet")
                 }
             }
-            .navigationTitle("Pay")
+            .navigationDestination(store: self.store.scope(state: \.$destination, action: { .destination($0) }), state: /PayReducer.Destination.State.popover, action: PayReducer.Destination.Action.popover) { store in
+                CardSettingView(store: store)
+            }
         }
         .onAppear {
             let bright = UIScreen.main.brightness
@@ -55,18 +71,18 @@ extension PayView {
 struct PayView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-                PayView(store: Store(initialState: .init(), reducer: { PayReducer() }))
+            PayView(store: Store(initialState: .init(), reducer: { PayReducer()._printChanges() }))
         }
     }
 }
 //MARK: - View
 extension PayView {
-    private var card: some View {
+    private func card(_ item: Card) -> some View {
         ZStack {
             Color.white
                 .shadow(radius: 5, x: -3, y: 2)
             VStack {
-                Image("cookie")
+                Image(item.cardImage)
                     .resizable()
                     .frame(height: 180)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -74,7 +90,7 @@ extension PayView {
                     .shadow(radius: 3, x: -8, y: 7)
                 
                 HStack {
-                    Text("스타벅스 e카드")
+                    Text(item.cardName)
                     Button {
                         //
                     } label: {
@@ -85,17 +101,18 @@ extension PayView {
                                 Image(systemName: "star.fill")
                                     .resizable()
                                     .frame(width: 12, height: 12)
-                                    .foregroundColor(.yellow)
+                                    .foregroundColor(item.isHighlight ?
+                                        .yellow : .gray.opacity(0.5))
                             }
                             .foregroundColor(.gray.opacity(0.5))
                     }
                 }
-                Text("300원").bold()
+                Text("\(item.money.priceFormatter)원").bold()
                 // 바코드
                 Color.black
                     .frame(height: 65)
                 // 핀번호
-                Text("****- ****-**27-6347")
+                Text(item.cardNumber.hideCardNumber)
                 // 바코드 유효시간 타이머
                 HStack {
                     Text("바코드 유효시간")
@@ -129,6 +146,7 @@ extension PayView {
                     }
 
                 }
+                .foregroundColor(.black.opacity(0.7))
                 .padding(.top, 10)
             }
             .padding(10)
