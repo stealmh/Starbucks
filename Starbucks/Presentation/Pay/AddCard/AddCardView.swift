@@ -25,14 +25,22 @@ extension AddCardView {
     var body: some View {
         VStack(spacing: 5) {
             HStack(spacing: 40) {
-                Text("스타벅스 카드")
-                    .frame(width: 100)
-                    .font(selectedTab == 0 ? .headline : .body)
-                    .foregroundColor(selectedTab == 0 ? .black : .gray)
-                Text("카드교환권")
-                    .frame(width: 80)
-                    .font(selectedTab == 1 ? .headline : .body)
-                    .foregroundColor(selectedTab == 1 ? .black : .gray)
+                Button {
+                    selectedTab = 0
+                } label: {
+                    Text("스타벅스 카드")
+                        .frame(width: 100)
+                        .font(selectedTab == 0 ? .headline : .body)
+                        .foregroundColor(selectedTab == 0 ? .black : .gray)
+                }
+                Button {
+                    selectedTab = 1
+                } label: {
+                    Text("카드교환권")
+                        .frame(width: 80)
+                        .font(selectedTab == 1 ? .headline : .body)
+                        .foregroundColor(selectedTab == 1 ? .black : .gray)
+                }
                 Spacer()
             }
             .padding(.leading, 10)
@@ -57,17 +65,17 @@ extension AddCardView {
                 AddCardExchangeView()
                     .tag(1)
             }
-            .tabViewStyle(PageTabViewStyle())
-            .gesture(
-                DragGesture()
-                    .onEnded({ value in
-                        if value.translation.width < 0 {
-                            self.selectedTab = 1
-                        } else if value.translation.width > 0 {
-                            self.selectedTab = 0
-                        }
-                    })
-            )
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//            .gesture(
+//                DragGesture()
+//                    .onEnded({ value in
+//                        if value.translation.width < 0 {
+//                            self.selectedTab = 1
+//                        } else if value.translation.width > 0 {
+//                            self.selectedTab = 0
+//                        }
+//                    })
+//            )
             .navigationTitle("카드 등록")
         }
     }
