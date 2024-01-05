@@ -46,8 +46,8 @@ struct StarbucksWidgetEntryView : View {
 
     var body: some View {
         ZStack {
-            Color.black.opacity(0.3)
-            VStack {
+            Color("starbucksGreen")
+            VStack(spacing: 0) {
                 HStack(spacing: 10) {
                     Image("icon")
                         .resizable()
@@ -58,20 +58,73 @@ struct StarbucksWidgetEntryView : View {
                         .font(.callout)
                     Spacer()
                 }
-                .padding(.leading, 20)
-                Divider()
-                    .padding([.leading, .trailing], 20)
-                Link(destination: URL(string: "myapp://com.mino.starbucks.Starbucks.hello")!) {
-                    Text("123")
-                        .frame(width: 200, height: 50)
-                        .background(.red)
+                .padding(EdgeInsets(top: 30,
+                                    leading: 20,
+                                    bottom: 10,
+                                    trailing: 0))
+                Rectangle()
+                    .frame(height: 0.3)
+                    .foregroundColor(.white)
+                    .padding([.leading, .trailing], 17)
+                HStack {
+                    VStack(spacing: 10) {
+                        Spacer()
+                        Image("cup")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        Link(destination: URL(string: "myapp://com.mino.starbucks.Starbucks.hello")!) {
+                            Text("사이렌오더")
+                                .font(.footnote)
+                        }
+                        Spacer()
+                    }
+                    .foregroundColor(.white)
+                    .padding(.top, 3)
+                    Spacer()
+                    VStack(spacing: 10) {
+                        Spacer()
+                        Image("card")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        Link(destination: URL(string: "myapp://com.mino.starbucks.Starbucks.hello")!) {
+                            Text("페이")
+                                .font(.footnote)
+                        }
+                        Spacer()
+                    }
+                    .foregroundColor(.white)
+                    Spacer()
+                    VStack(spacing: 10) {
+                        Spacer()
+                        Image("coupon")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        Link(destination: URL(string: "myapp://com.mino.starbucks.Starbucks.hello")!) {
+                            Text("쿠폰")
+                                .font(.footnote)
+                        }
+                        Spacer()
+                    }
+                    .foregroundColor(.white)
+                    Spacer()
+                    VStack(spacing: 10) {
+                        Spacer()
+                        Image("bag")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        Link(destination: URL(string: "myapp://com.mino.starbucks.Starbucks.hello")!) {
+                            Text("온라인 스토어")
+                                .font(.footnote)
+                        }
+                        Spacer()
+                    }
+                    .foregroundColor(.white)
                 }
-                
-                Link(destination: URL(string: "myapp://com.mino.starbucks.Starbucks.bye")!) {
-                    Text("123")
-                        .frame(width: 200, height: 50)
-                        .background(.red)
-                }
+                .padding(EdgeInsets(top: 10,
+                                    leading: 15,
+                                    bottom: 0,
+                                    trailing: 15))
+//                .background(.red)
             }
         }
     }
