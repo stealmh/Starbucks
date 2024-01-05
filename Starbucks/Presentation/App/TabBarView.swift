@@ -90,8 +90,19 @@ extension TabBarView {
                 .accentColor(.green)
             }
         }
+        .onOpenURL { url in
+            if url.scheme == "myapp", url.host == "com.mino.starbucks.Starbucks.hello" {
+                viewStore.send(.deepLinkCheck(true))
+                viewStore.send(.deeplink(.order))
+                print("onOpenURL")
+            } else {
+                print("is bye")
+            }
+        }
         .onAppear {
+            print("onappear")
             viewStore.send(.onAppear)
+            viewStore.send(.deepLinkCheck(false))
         }
     }
 }
