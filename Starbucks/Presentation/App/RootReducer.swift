@@ -22,10 +22,7 @@ struct RootReducer: Reducer {
         
         var isLoading = true
         var welcom: PopupReducer.State?
-        
-        init() {
-            welcom = PopupReducer.State()
-        }
+        var isDeepLink: Bool = false
     }
     
     enum Action: Equatable {
@@ -38,6 +35,8 @@ struct RootReducer: Reducer {
         case tabSelected(Tab)
         case onAppear
         case onAppearResponse(Bool)
+        case deeplink(Tab)
+        case deepLinkCheck(Bool)
     }
     
     var body: some ReducerOf<Self> {
@@ -49,6 +48,9 @@ struct RootReducer: Reducer {
                     await send(.onAppearResponse(false))
                 }
             case let .onAppearResponse(complete):
+                if !state.isDeepLink && state.isLoading == true {
+                    state.welcom = PopupReducer.State()
+                }
                 state.isLoading = complete
                 return .none
             /// PopupReducer Action
@@ -65,6 +67,17 @@ struct RootReducer: Reducer {
             case .home:
                 return .none
             case .pay:
+                return .none
+            case .deeplink(let tab):
+                state.selectedTab = tab
+                state.isDeepLink = true
+                return .none
+            case .deepLinkCheck(let isDeepLink):
+                if isDeepLink {
+                    state.isDeepLink = true
+                } else {
+                    state.isDeepLink = false
+                }
                 return .none
             }
         }
@@ -91,6 +104,7 @@ struct RootReducer: Reducer {
         Scope(state: \.other, action: /RootReducer.Action.other) {
             OtherReducer()
         }
+        ._printChanges()
         
     }
 }
